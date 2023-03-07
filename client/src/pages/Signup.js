@@ -40,10 +40,10 @@ const Signup = (props) => {
   <input type="password" name="Password" value={formdata.Password}onChange={handleonChange}></input><br></br>
   confirm password:
   <input type="password" name="ConfirmPassword" value={formdata.ConfirmPassword}onChange={handleonChange}></input><br></br>
-  {/* <Link to='/login'>Login</Link> */}
+ 
   <button type='submit' >submit</button>
         </form>
-        <button> <Link to='/login'>Already have an account?Login here.</Link></button>
+        <button> Already have an account?<Link to='/login'>Login here.</Link></button>
         </div>
   )
 }

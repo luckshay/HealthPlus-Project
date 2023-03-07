@@ -28,24 +28,24 @@ const Login = (props) => {
   return (
     <>
     <form  onSubmit={onSubmit}>
-    <div className="mb-2">
+    <div>
            <h3>LOGIN</h3>
         {/* Name:
      <input type="text" name="Username" value={formdata.Username} onChange={handleonChange} placeholder='enter your name'>
      </input><br></br> */}
-       <div className="mb-3">
+       <div>
           <label>Email address</label>
-     <input type="email"   className="form-control" name="Email" value={formdata.Email}onChange={handleonChange} placeholder='enter your email'></input><br></br>
+     <input type="email"  name="Email" value={formdata.Email}onChange={handleonChange} placeholder='enter your email'></input><br></br>
     </div>
-    <div className="mb-3">
+    <div >
           <label>Password</label>
-     <input type="password"   className="form-control"  name="Password" value={formdata.Password}onChange={handleonChange} placeholder='enter your password' ></input><br></br>
+     <input type="password"  name="Password" value={formdata.Password}onChange={handleonChange} placeholder='enter your password' ></input><br></br>
     </div>
     {/* <Link to='/Signup'>Signup</Link> */}
-    <div className="d-grid">
-    <button type='submit' className="btn btn-primary">LOG IN</button>
+    <div>
+    <button type='submit'>LOG IN</button>
     </div>
-    <button className="link-btn"> <Link to='/Signup'>Don't have an account? Register here.</Link></button>
+    <button> Don't have an account?<Link to='/Signup'> Register here.</Link></button>
     </div>
     </form>
     </>
