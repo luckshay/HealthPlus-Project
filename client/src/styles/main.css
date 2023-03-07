@@ -9,8 +9,7 @@
 
 :root {
 	--mainColor: #5271ff;
-	--mainColorLight: #5767aa;
-	--secondaryColor: #db2b39;
+	--secondaryColor: #527fff;
 	--textColor: #eee;
 }
 
@@ -18,20 +17,35 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 80px;
+	height: auto;
 	padding: 0 2rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
 }
 
+header h2 {
+	flex:1;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
 nav a {
+	display: block;
 	margin: 0 1rem;
+	padding: 10px 20px;
 	color: var(--textColor);
 	text-decoration: none;
+	font-size:1.2rem;
+	transition: all 0.3s ease;
 }
 
 nav a:hover {
-	color: var(--secondaryColor);
+	background-color: var(--secondaryColor);
+	padding: 10px 20px;
 }
 
 header .nav-btn {
@@ -45,13 +59,7 @@ header .nav-btn {
 	opacity: 0;
 	font-size: 1.8rem;
 }
-
-header div,
-nav {
-	display: flex;
-	align-items: center;
-}
-
+ 
 @media only screen and (max-width: 1024px) {
 	header .nav-btn {
 		visibility: visible;
@@ -85,5 +93,11 @@ nav {
 
 	nav a {
 		font-size: 1.5rem;
+		transition: all 0.3s ease;
+	}
+
+	nav a:hover {
+		background-color: var(--secondaryColor);
+		padding: 10px 20rem;
 	}
 }
