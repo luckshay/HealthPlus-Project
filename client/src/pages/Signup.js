@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-import '../styles/Login.css'
+import '../styles/Login_Signup.css'
 const Signup = (props) => {
     const Navigate=useNavigate();
     const [formdata,setformdata]=useState({
@@ -28,23 +28,30 @@ const Signup = (props) => {
         Navigate('/login')
     }
   return (
-    <div  className="auth-form-container">
-        <h1>SIGNUP!!!</h1>
-         <form onSubmit={onSubmit}>
-  Username:
-  <input type="text" name="Username" value={formdata.Username} onChange={handleonChange}>
-  </input><br></br>
-  Email:
-  <input type="email" name="Email" value={formdata.Email}onChange={handleonChange}></input><br></br>
-  Password:
-  <input type="password" name="Password" value={formdata.Password}onChange={handleonChange}></input><br></br>
-  confirm password:
-  <input type="password" name="ConfirmPassword" value={formdata.ConfirmPassword}onChange={handleonChange}></input><br></br>
-  {/* <Link to='/login'>Login</Link> */}
-  <button type='submit' >submit</button>
-        </form>
-        <button> <Link to='/login'>Already have an account?Login here.</Link></button>
-        </div>
+    <>
+    <div class="container">
+      <div class="image-container">
+        <img src={require("../assets/loginbg.png")}></img>
+      </div>
+    <form class="login-form" onSubmit={onSubmit}>
+    <h2>SIGNUP</h2>
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" value={formdata.Username} onChange={handleonChange}>
+    </input>
+    <label for="email">E-mail Address</label>
+    <input type="email" id="email" name="Email" value={formdata.Email}onChange={handleonChange}></input>
+    <label for="password">Password</label>
+    <input type="password" id="passsword" name="Password" value={formdata.Password}onChange={handleonChange}></input>
+    <label for="confirm password">Confirm Password</label>
+    <input type="password" id="confirmpassword" name="ConfirmPassword" value={formdata.ConfirmPassword}onChange={handleonChange}></input>
+    <div class="button-container">
+    <button type='submit' >Submit</button>
+    </div>
+    <Link to='/login'>Already have an account?Login here.
+    </Link>
+    </form>
+    </div>
+    </>
   )
 }
 export default Signup
