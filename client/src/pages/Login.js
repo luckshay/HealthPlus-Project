@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {useState} from 'react'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 import '../styles/Login_Signup.css'
-const Login = (props) => {
+const Login = () => {
     const [formdata,setformdata]=useState({
         Username:"",
         Email:"",
@@ -29,10 +29,10 @@ const Login = (props) => {
     <>
     <div class="container">
       <div class="image-container">
-        <img src={require("../assets/loginbg.png")}></img>
+        <img src={require("../assets/loginbg.png")} alt={"Doctor Logo"}></img>
       </div>
     <form class="login-form" onSubmit={onSubmit} >
-    <h2>LOGIN</h2>
+    <h2>LOGIN</h2><br></br>
     <label for="email">E-mail address</label>
     <input type="email" id="email" name="email" value={formdata.Email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
     <label for="password">Password</label>

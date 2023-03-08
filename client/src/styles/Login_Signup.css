@@ -12,19 +12,18 @@
 .login-form {
   flex: 1;
   padding: 20px;
+  margin: 2rem;
 }
 
 /* Style for the login form */
 .login-form {
     max-width: 400px;
-    margin: 5rem;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #5271ff;
   }
   
   /* Style for the form fields */
-  .login-form input[type="text"],
   .login-form input[type="email"],
   .login-form input[type="password"] {
     width: 100%;
@@ -55,6 +54,10 @@
     text-align: center;
   }
   
+  .login-form button:hover{
+    background-color: #648cfa;
+  }
+
   /* Style for the form title */
   .login-form h2 {
     text-align: center;
@@ -74,5 +77,25 @@
   .image-container img {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Media queries for responsive layout */
+  @media only screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      margin: 1rem;
+    }
+    .image-container,
+    .login-form {
+      flex: auto;
+      max-width: 100%;
+    }
+    .login-form {
+      max-width: 384px;
+    }
+    .image-container img {
+      max-width: 100%;
+      max-height: 15rem ;
+    }
   }
   

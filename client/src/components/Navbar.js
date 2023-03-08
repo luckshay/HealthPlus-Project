@@ -1,6 +1,6 @@
 import {useRef} from 'react'
 import {FaBars, FaTimes} from "react-icons/fa"
-import "../styles/main.css";
+import "../styles/header.css";
 import {Link}from "react-router-dom";
 function Navbar(){
     const navRef=useRef();
@@ -9,15 +9,13 @@ function Navbar(){
     }
     return (
         <header>
-            {/* <img src={require("../../src/assets/logo/Health-Plus Logo 2.png")} width={75} height={75} alt=""></img> */}
-            {/* client\src\assets\logo\Health-Plus Logo 2.png */}
             <h2>HealthPlus</h2>
-            <nav ref={navRef}>
+            <nav ref={navRef} onClick={showNavbar}>
                 <Link to="/">Home</Link>
                 <Link to="/about">About Us</Link>
                 <Link to="/Contact">Contact Us</Link>
-                <Link to="/Privacy">Privacy Policies</Link>
-                <Link to="/Login">Login</Link>
+                <Link to="/Privacy">Policies</Link>
+                <Link to="/Login">Login/SignUp</Link>
                 <button className="nav-btn nav-close-btn"onClick={showNavbar}>
                     <FaTimes/>
                 </button>

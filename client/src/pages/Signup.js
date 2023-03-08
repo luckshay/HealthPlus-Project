@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
+// import { Navigate } from 'react-router-dom'
 import '../styles/Login_Signup.css'
-const Signup = (props) => {
+const Signup = () => {
     const Navigate=useNavigate();
     const [formdata,setformdata]=useState({
-        Username:"",
         Email:"",
         Password:"",
         ConfirmPassword:"",
@@ -20,7 +19,6 @@ const Signup = (props) => {
     const  onSubmit=(e)=>{
         e.preventDefault();
         setformdata({
-            Username:"",
             Email:"",
             Password:"",
             ConfirmPassword:"",
@@ -31,19 +29,16 @@ const Signup = (props) => {
     <>
     <div class="container">
       <div class="image-container">
-        <img src={require("../assets/loginbg.png")}></img>
+        <img src={require("../assets/loginbg.png")}alt={"Doctor Logo"}></img>
       </div>
     <form class="login-form" onSubmit={onSubmit}>
-    <h2>SIGNUP</h2>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" value={formdata.Username} onChange={handleonChange}>
-    </input>
+    <h2>SIGNUP</h2><br></br>
     <label for="email">E-mail Address</label>
-    <input type="email" id="email" name="Email" value={formdata.Email}onChange={handleonChange}></input>
+    <input type="email" id="email" name="Email" value={formdata.Email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
     <label for="password">Password</label>
-    <input type="password" id="passsword" name="Password" value={formdata.Password}onChange={handleonChange}></input>
+    <input type="password" id="passsword" name="Password" value={formdata.Password}onChange={handleonChange} placeholder='Enter your Password'></input>
     <label for="confirm password">Confirm Password</label>
-    <input type="password" id="confirmpassword" name="ConfirmPassword" value={formdata.ConfirmPassword}onChange={handleonChange}></input>
+    <input type="password" id="confirmpassword" name="ConfirmPassword" value={formdata.ConfirmPassword}onChange={handleonChange}placeholder='Enter your Password Again'></input>
     <div class="button-container">
     <button type='submit' >Submit</button>
     </div>
