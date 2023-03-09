@@ -11,6 +11,7 @@ import Contactpage from "../pages/Contactpage";
 import Privacypage from "../pages/Privacypage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+
 function App() {
   return (
     <>
