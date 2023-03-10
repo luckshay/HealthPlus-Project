@@ -33,6 +33,8 @@ const Signup = () => {
       </div>
     <form className="login-form" onSubmit={onSubmit}>
     <h2>SIGNUP</h2><br></br>
+    <label htmlFor="full name">Full Name</label>
+    <input type="text" id="fullname" name="fullname" value={formdata.FullName}onChange={handleonChange} placeholder='Enter your Name'></input>
     <label htmlFor="email">E-mail Address</label>
     <input type="email" id="email" name="Email" value={formdata.Email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
     <label htmlFor="password">Password</label>
