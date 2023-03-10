@@ -24,6 +24,7 @@
   }
   
   /* Style for the form fields */
+  .login-form input[type="text"],
   .login-form input[type="email"],
   .login-form input[type="password"] {
     width: 100%;
