@@ -27,17 +27,17 @@ const Login = () => {
     }
   return (
     <>
-    <div className="container">
-      <div className="image-container">
+    <div class="container">
+      <div class="image-container">
         <img src={require("../assets/loginbg.png")} alt={"Doctor Logo"}></img>
       </div>
-    <form className="login-form" onSubmit={onSubmit} >
+    <form class="login-form" onSubmit={onSubmit} >
     <h2>LOGIN</h2><br></br>
-    <label htmlFor="email">E-mail address</label>
-    <input type="email" id="email" name="Email" value={formdata.Email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
-    <label htmlFor="password">Password</label>
-    <input type="password" id="password"  name="Password" value={formdata.Password}onChange={handleonChange} placeholder='Enter your Password' ></input>
-    <div className="button-container">
+    <label for="email">E-mail address</label>
+    <input type="email" id="email" name="email" value={formdata.Email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
+    <label for="password">Password</label>
+    <input type="password" id="password"  name="password" value={formdata.Password}onChange={handleonChange} placeholder='Enter your Password' ></input>
+    <div class="button-container">
     <button type='submit' >LOG IN</button><br></br>
     <Link to='/Signup'>Don't have an account? Register here.</Link>
     </div>

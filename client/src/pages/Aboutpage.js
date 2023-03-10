@@ -21,7 +21,7 @@ const Aboutpage = () => {
         <h5>OUR MOTTO</h5>
           <div className="motto-content">
           <div className="motto-image">
-            <img src={require("../assets/images/about-us-motto-image.jpg")} width="80%"></img>
+            <img src={require("../assets/images/about-us-motto-image.jpg")} alt={"about-us-motto-image"} width="80%"></img>
           </div>
           <div className="motto-text">
           <p>At HealthPlus, we believe that every patient deserves the best possible care and that every healthcare provider deserves the tools and resources to deliver that care efficiently and effectively. That's why we have created a comprehensive platform that brings together patients, healthcare providers, and other stakeholders to facilitate better communication, collaboration, and decision-making.</p>

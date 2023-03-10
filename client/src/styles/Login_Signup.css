@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f5f5f5;
-  max-width: 50rem ;
+  max-width: 0rem ;
   margin: 2rem auto;
 }
 .image-container,
@@ -76,7 +76,7 @@
 
   /* Style for the image */
   .image-container img {
-    max-width: 100%;
+    max-width: 20rem;
     height: auto;
   }
 

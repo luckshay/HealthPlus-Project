@@ -14,7 +14,7 @@ const Signup = () => {
         let name=e.target.name;
 
         setformdata({...formdata,[name]:val})
-        // console.log(formdata)
+        console.log(formdata)
     }
     const  onSubmit=(e)=>{
         e.preventDefault();
@@ -27,21 +27,22 @@ const Signup = () => {
     }
   return (
     <>
-    <div className="container">
-      <div className="image-container">
+    <div class="container">
+      <div class="image-container">
         <img src={require("../assets/loginbg.png")}alt={"Doctor Logo"}></img>
       </div>
-    <form className="login-form" onSubmit={onSubmit}>
+    <form class="login-form" onSubmit={onSubmit}>
     <h2>SIGNUP</h2><br></br>
     <label htmlFor="full name">Full Name</label>
     <input type="text" id="fullname" name="fullname" value={formdata.FullName}onChange={handleonChange} placeholder='Enter your Name'></input>
     <label htmlFor="email">E-mail Address</label>
+    <label for="email">E-mail Address</label>
     <input type="email" id="email" name="Email" value={formdata.Email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
-    <label htmlFor="password">Password</label>
+    <label for="password">Password</label>
     <input type="password" id="passsword" name="Password" value={formdata.Password}onChange={handleonChange} placeholder='Enter your Password'></input>
-    <label htmlFor="confirm password">Confirm Password</label>
+    <label for="confirm password">Confirm Password</label>
     <input type="password" id="confirmpassword" name="ConfirmPassword" value={formdata.ConfirmPassword}onChange={handleonChange}placeholder='Enter your Password Again'></input>
-    <div className="button-container">
+    <div class="button-container">
     <button type='submit' >Submit</button>
     </div>
     <Link to='/login'>Already have an account?Login here.
