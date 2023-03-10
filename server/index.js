@@ -9,7 +9,7 @@ app.use(express.json())
 
 app.use('/users', Router);
 
-const PORT = process.env.PORT || 5000;
+const PORT =  5000;
 
 
 connectDB()
