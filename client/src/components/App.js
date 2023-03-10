@@ -11,6 +11,7 @@ import Contactpage from "../pages/Contactpage";
 import Privacypage from "../pages/Privacypage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Footer from "./Footer";
 function App() {
   return (
     <>
@@ -24,7 +25,9 @@ function App() {
         <Route exact path='/Login' element={<Login/>}/>
         <Route exact path='/Signup' element={<Signup/>}/>
       </Routes>
+      <Footer/>
       </Router>
+     
     </>
   );
 }
