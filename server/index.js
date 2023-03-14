@@ -1,15 +1,17 @@
 const express = require("express");
 const app = express();
 const connectDB = require('./src/config/database');
-const routes = require('./src/routes/Router')
-const cors=require("cors");
+const loginrouter = require('./src/routes/Router')
+// const cors=require("cors");
 const { Router } = require("express");
+require('dotenv').config();
 
 app.use(express.json())
 
 app.use('/users', Router);
 
-const PORT =  process.env.PORT || 5000;
+const PORT =  process.env.PORT;
+
 
 
 connectDB()
@@ -21,3 +23,5 @@ connectDB()
   .catch((err) => {
     console.error('Error connecting to MongoDB:', err);
   });
+
+  app.use(loginrouter)
