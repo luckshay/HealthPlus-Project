@@ -12,7 +12,7 @@ const Aboutpage = () => {
            <button className="btn btn-primary">Get Started</button>
            </div>
            <div className="hero-img">
-          <img src={require("../assets/images/about-us-main-image.jpg")} alt={"hero-image"}width="80%"></img>
+          <img src={require("../assets/images/about-us-main-image.jpg")} alt={"about-us-main"}width="80%"></img>
           </div>
         </section>
 
@@ -21,7 +21,7 @@ const Aboutpage = () => {
         <h5>OUR MOTTO</h5>
           <div className="motto-content">
           <div className="motto-image">
-            <img src={require("../assets/images/about-us-motto-image.jpg")} alt={"hero-image"}width="80%"></img>
+            <img src={require("../assets/images/about-us-motto-image.jpg")} alt={"about-us-motto"}width="80%"></img>
           </div>
           <div className="motto-text">
           <p>At HealthPlus, we believe that every patient deserves the best possible care and that every healthcare provider deserves the tools and resources to deliver that care efficiently and effectively. That's why we have created a comprehensive platform that brings together patients, healthcare providers, and other stakeholders to facilitate better communication, collaboration, and decision-making.</p>
@@ -35,7 +35,7 @@ const Aboutpage = () => {
   Our platform is built on the latest technologies and industry standards, ensuring maximum security, reliability, and scalability. With a user-friendly interface and intuitive navigation, our platform is easy to use for everyone, regardless of their technical expertise.
   </div>
   <div className="user-friendly-image">
-    <img src={require("../assets/images/about-us-user-friendly-image.jpg")} alt={"hero-image"}></img>
+    <img src={require("../assets/images/about-us-user-friendly-image.jpg")} alt={"about-us-user-friendly"}></img>
   </div>
 </section>
         {/* vision section */}
