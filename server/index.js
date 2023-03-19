@@ -21,7 +21,7 @@ connectDB()
     console.error('Error connecting to MongoDB:', err);
   });
 
-app.get('/', (req, res) => res.send("Hello World"));
+app.get('/', (req, res) => res.send("Welcome to Server"));
 
 const authRoutes = require('./src/routes/authRoutes')
 app.use('/api', authRoutes);
