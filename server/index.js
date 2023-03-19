@@ -1,18 +1,15 @@
 const express = require("express");
-const app = express();
 const connectDB = require('./src/config/database');
-const loginrouter = require('./src/routes/Router')
-// const cors=require("cors");
-const { Router } = require("express");
+const app = express();
+const cors = require('cors');
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 require('dotenv').config();
-
-app.use(express.json())
-
-app.use('/users', Router);
-
 const PORT =  process.env.PORT;
-
-
 
 connectDB()
   .then(() => {
@@ -24,4 +21,8 @@ connectDB()
     console.error('Error connecting to MongoDB:', err);
   });
 
-  app.use(loginrouter)
+app.get('/', (req, res) => res.send("Hello World"));
+
+const authRoutes = require('./src/routes/authRoutes')
+app.use('/api', authRoutes);
+

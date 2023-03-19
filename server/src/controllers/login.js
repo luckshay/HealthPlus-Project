@@ -1,8 +1,11 @@
 const express=require("express")
 const router=express.Router();
+
 const generateAuthToken = require("../library/jsontokengenerator");
 
-router.post('/login', async(req, res)=>{
+
+
+router.post('/', async(req, res)=>{
     const userInfo=req.body;
     let userData;
     try{
@@ -33,3 +36,5 @@ router.post('/login', async(req, res)=>{
     })
     
 })
+
+module.exports = router
