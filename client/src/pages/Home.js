@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "../config/axios";
 import '../styles/Home.css';
 import image1 from '../assets/logo/patientregistration.avif' 
 import image2 from "../assets/logo/Healthregistration.avif"
@@ -38,6 +39,20 @@ function Home() {
     },
   ];
 
+  const [userCount, setUserCount]= useState(null);
+
+
+  async function fetchUserCount() {
+    const response = await axios.get("/users/analysis");
+    setUserCount(response.data.countUser);
+  }
+
+  useEffect(() => {
+    fetchUserCount();
+    const interval = setInterval(fetchUserCount, 5000);
+    return () => clearInterval(interval);
+  }, [])
+
   return (
     <>
     <div className="Homecontainer">
@@ -64,6 +79,9 @@ function Home() {
           </div>
         ))}
       </div>
+    </div>
+    <div>
+      Number Of Users: {userCount}
     </div>
     </>
   );

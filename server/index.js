@@ -21,8 +21,11 @@ connectDB()
     console.error('Error connecting to MongoDB:', err);
   });
 
-app.get('/', (req, res) => res.send("Welcome to Server"));
+app.get('/', (_req, res) => res.send("Welcome to Server"));
 
 const authRoutes = require('./src/routes/authRoutes')
 app.use('/api', authRoutes);
+
+const compStatsRoutes = require('./src/routes/compStatsRoutes')
+app.use('/users', compStatsRoutes)
 
