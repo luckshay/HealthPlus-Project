@@ -12,10 +12,41 @@
 	--secondaryColor: #527fff;
 	--textColor: #eee;
 }
-.footercontainer{
+
+.footer_container{
+    background-color: #527fff;
+	display: flex;
+	padding: 30px;
+    justify-content: space-between;
+}
+.link_lists h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+.link_lists ul li{
+	color: white;
+	line-height: 1.8;
+}
+.link_lists ul li a{
+    font-size: 16px;
+    margin-bottom: 5px;
+	color: white;
+	text-decoration: none;
+}
+
+.address{
+	list-style: none;
+}
+.icon_container {
     display: flex;
-    justify-content: center;
-    background-color: #5271ff;
-    color:white;
-    gap: 100px;
+    gap: 15px;
+    font-size: 32px;
+}
+.footer-bottom{
+	display: flex;
+	justify-content: space-between;
+	background-color: #527fff;
+	color: white;
+	font-size: 15px;
+	padding: 25px;
 }

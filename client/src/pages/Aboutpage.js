@@ -9,7 +9,7 @@ const Aboutpage = () => {
           <h5>ABOUT US</h5>
           <h1>HEALTHPLUS MAKING YOUR LIFE BETTER</h1>
           <p>Welcome to HealthPlus! We are a healthcare analytics platform dedicated to improving the quality of healthcare services and patient outcomes through data-driven insights and innovative solutions.</p>
-           <button className="btn btn-primary">Get Started</button>
+
            </div>
            <div className="hero-img">
           <img src={require("../assets/images/about-us-main-image.jpg")} alt={"about-us-main"}width="80%"></img>

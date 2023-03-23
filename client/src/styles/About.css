@@ -26,7 +26,7 @@
 }
 .hero-section p{
   color:grey;
-  padding: 5px 10px;
+  padding: 5px 8px;
   line-height: 1.8;
 }
 .hero-content button{
@@ -36,9 +36,12 @@
 .hero-img{
   display: flex;
   justify-content: center;
+  padding: 30px;
 }
 .hero-img img{
   border-radius: 2%;
+  width: 500px;
+  height:300px;
 }
 @media (max-width:786px) {
   .hero-section{
@@ -72,23 +75,26 @@
     margin: 2rem;
   }
   .motto h5{
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
   .motto-content{
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: flex;
-    gap: 15px;
+    gap: 80px;
   }
   .motto-content .motto-image{
     display: flex;
     justify-content: center;
     margin-top: 4%;
+    padding-left: 90px;
   }
   .motto-content .motto-image img{
     border-radius: 2%;
     display: flex;
     justify-content: center;
+    width: 500px;
+    height:290px;
   }
   .motto-content .motto-text{
     display: flex;
@@ -96,7 +102,7 @@
     width: 100%;
     margin-right: 10%;
     margin-top: 6%;
-    line-height: 1.8;
+    line-height: 2;
   }
   @media (max-width:786px) {
     .motto{
@@ -123,6 +129,7 @@
       justify-content: center;
     }
   }
+
   /* user-friendly section */
 .user-friendly{
     text-align: center;
@@ -133,7 +140,6 @@
     letter-spacing: 0.4px;
   }
   .user-friendly h5{
-    margin-top: 20px;
     margin-bottom: 20px;
   }
   
@@ -144,10 +150,11 @@
     margin: 2rem;
   }
   .user-friendly-content p{
-    padding: 20px;
+    padding: 30px;
+    line-height: 2;
   }
   .user-friendly-image{
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     padding: 20px;
   }
   .user-friendly-image img{
@@ -155,6 +162,7 @@
     width: 450px;
     border-radius: 2%;
   }
+
   /* vision section */
 .vision{
     text-align: center;
@@ -163,24 +171,29 @@
     margin: 2rem;
   }
   .vision h5{
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
   .vision-content{
     margin-top: 20px;
     margin-bottom: 50px;
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 30px;
   }
   .vision-content .vision-image{
     display: flex;
     justify-content: center;
     margin-top: 4%;
+    margin-right: 40px;
   }
   .vision-content .vision-image img{
     width: 80%;
     border-radius: 2%;
     display: flex;
     justify-content: center;
+    width: 500px;
+  height:300px;
+  margin-right: 20px;
   }
   .vision-content .vision-text{
     display: flex;
@@ -225,10 +238,16 @@
     letter-spacing: 0.4px;
     background-color: #f5f5f5;
   }
+  .regards h5{
+    padding-top: 15px;
+  }
   .regards-content{
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin: 2rem;
+    /* margin: 2rem; */
+    padding: 20px;
   }
+
+  .regards-content p{
+  }
+  
