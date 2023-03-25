@@ -15,7 +15,7 @@ function Navbar(){
                 <Link to="/">Home</Link>
                 <Link to="/about">About Us</Link>
                 <Link to="/Contact">Contact Us</Link>
-                <Link to="/Privacy">Policies</Link>
+                <Link to="/Policies">Policies</Link>
                 <Link to="/Login">Login/SignUp</Link>
                 <button className="nav-btn nav-close-btn">
                     <FaTimes/>

@@ -16,7 +16,7 @@
 .footer_container{
     background-color: #527fff;
 	display: flex;
-	padding: 30px;
+	padding: 2rem 8rem;
     justify-content: space-between;
 }
 .link_lists h2 {
@@ -26,6 +26,8 @@
 .link_lists ul li{
 	color: white;
 	line-height: 1.8;
+	max-width: 16rem;
+
 }
 .link_lists ul li a{
     font-size: 16px;
@@ -34,7 +36,7 @@
 	text-decoration: none;
 }
 
-.address{
+.contact{
 	list-style: none;
 }
 .icon_container {
