@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f5f5f5;
-  max-width: 50rem ;
+  max-width: 60rem ;
   margin: 2rem auto;
 }
 .image-container,
@@ -24,9 +24,7 @@
   }
   
   /* Style for the form fields */
-  .login-form input[type="text"],
-  .login-form input[type="email"],
-  .login-form input[type="password"] {
+  .login-form input, select{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

@@ -4,8 +4,8 @@ const Footer = () => {
   return (
    <>
     <footer>
-        <div class="footer_container">
-            <div class="link_lists">
+        <div className="footer_container">
+            <div className="link_lists">
                 <h2>Contact</h2>
                 <ul className='contact'>
                     <li><h3>Address</h3></li>
@@ -16,24 +16,24 @@ const Footer = () => {
                     <li>1800-00-0000</li>
                     {/* <li><h3>Social Media</h3></li> */}
                     <li>
-                    <div class="icon_container">
-                    <div class="icon">
-                        <i class="fa fa-facebook"></i>
+                    <div className="icon_container">
+                    <div className="icon">
+                        <i className="fa fa-facebook"></i>
                     </div>
-                    <div class="icon">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <div className="icon">
+                        <i className="fa fa-twitter" aria-hidden="true"></i>
                     </div>
-                    <div class="icon">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <div className="icon">
+                        <i className="fa fa-instagram" aria-hidden="true"></i>
                     </div>
-                    <div class="icon">
-                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    <div className="icon">
+                        <i className="fa fa-youtube" aria-hidden="true"></i>
                     </div>
                     </div>
                     </li>
                 </ul>
             </div>
-            <div class="link_lists">
+            <div className="link_lists">
                 <h2>Important Links</h2>
                 <ul>
                     <li><a href="/">Ministry of Health and Family Welfare</a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
                     <li><a href="/">Tell us what you think of our website</a></li>
                 </ul>
             </div>
-            <div class="link_lists">
+            <div className="link_lists">
                 <h2>Policies</h2>
                 <ul>
                     <li><a href="/">Terms & Conditions</a></li>

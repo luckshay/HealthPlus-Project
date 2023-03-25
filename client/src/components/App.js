@@ -13,6 +13,7 @@ import Contactpage from "../pages/Contactpage";
 import Policypage from "../pages/Policypage";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Profile from "../pages/Profilepage";
 import Footer from "./Footer";
 function App() {
   return (
@@ -21,15 +22,15 @@ function App() {
       <Navbar/>
       <Routes>
       <Route exact path='/' element={<Home/>}/>
-        <Route exact path='/about' element={<Aboutpage/>}/>
+        <Route exact path='/About' element={<Aboutpage/>}/>
         <Route exact path='/Contact' element={<Contactpage/>}/>
         <Route exact path='/Policies' element={<Policypage/>}/>
         <Route exact path='/Login' element={<Login/>}/>
         <Route exact path='/Signup' element={<Signup/>}/>
+        <Route exact path='/Profile' element={<Profile/>}/>
       </Routes>
       <Footer/>
       </Router>
-     
     </>
   );
 }

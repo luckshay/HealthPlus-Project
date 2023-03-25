@@ -1,5 +1,5 @@
 import React from 'react'
- import '../styles/About.css'
+import '../styles/About.css'
 const Aboutpage = () => {
   return (
     <div className="Aboutcontainer">
