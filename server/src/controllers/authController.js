@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user');
 const validator=require('validator')
-const { generateToken } = require('../library/authToken');
+const generateToken = require('../library/authToken');
 
 exports.register = async (req, res) => {
   try {
@@ -43,19 +43,20 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    try {
-      const { email, password } = req.body;
-      const user = await User.findOne({ email });
-      if (!user) {
-        return res.status(401).json({ message: 'Invalid credentials' });
-      }
-      const isPasswordCorrect = await user.comparePassword(password);
-      if (!isPasswordCorrect) {
-        return res.status(401).json({ message: 'Invalid credentials' });
-      }
-      const token = generateToken(user._id);
-      res.status(200).json({ token: token });
-    } catch (error) {
-      res.status(500).json({ message: 'Something went wrong' });
+  try {
+    const userInfo = req.body;
+    const userData = await User.findOne({ email:userInfo.email, userType:userInfo.userType });
+    if (!userData) {
+      return res.status(401).json({ message: 'User Not Found', token:null });
     }
-  };
+    const isPasswordCorrect = await bcrypt.compare(userInfo.password, userData.password);
+    if (!isPasswordCorrect) {
+      return res.status(401).json({ message: 'Invalid credentials', token:null });
+    }
+    
+    const token = generateToken({userData});
+    res.status(200).json({ message: 'Login successful', token});
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong', token:null });
+  }
+};

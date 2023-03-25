@@ -1,8 +1,14 @@
 const jwt=require('jsonwebtoken')
+require('dotenv').config();
 
 const generateToken=function(data){
-    data=Json.stringify(data)
-    const token = jwt.sign(data, process.env.JWT_SIGN_KEY)
-    return token
-}
+    try {
+      data=JSON.stringify(data)
+      const token = jwt.sign(data, process.env.JWT_SIGN_KEY)
+      return token
+    } catch (err) {
+      console.error(err)
+      return null
+    }
+  }
 module.exports=generateToken

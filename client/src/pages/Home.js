@@ -40,11 +40,18 @@ function Home() {
   ];
 
   const [userCount, setUserCount]= useState(null);
+  const [professionalsCount, setProfessionalsCount]= useState(null);
+  const [facilityCount, setFacilityCount]= useState(null);
+  const [campCount, setCampCount]= useState(null);
 
 
   async function fetchUserCount() {
     const response = await axios.get("/users/analysis");
-    setUserCount(response.data.countUser);
+    setUserCount(response.data.countRecipient);
+    setProfessionalsCount(response.data.countProfessionals);
+    setFacilityCount(response.data.countFacilities);
+    setCampCount(response.data.countCamps);
+    
   }
 
   useEffect(() => {
@@ -81,7 +88,11 @@ function Home() {
       </div>
     </div>
     <div>
-      Number Of Users: {userCount}
+      Number Of Recipients Registered: {userCount}
+      Number Of Health Professionals Registered: {professionalsCount}
+      Number Of HealthCare Facilities Registered: {facilityCount}
+      Number Of Blood Donation Camps Registered: {campCount}
+      
     </div>
     </>
   );

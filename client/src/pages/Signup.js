@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from '../config/axios';
 import '../styles/Login_Signup.css'
 const Signup = () => {
-    const history=useNavigate();
+    const Navigate=useNavigate();
 
     const [formdata,setformdata]=useState({
       name:"" ,
@@ -15,9 +15,7 @@ const Signup = () => {
     const handleonChange=(e)=>{
         let val=e.target.value;
         let name=e.target.name;
-
         setformdata({...formdata,[name]:val})
-        console.log(formdata)
     }
 
   const handle = async (e) => {
@@ -26,12 +24,16 @@ const Signup = () => {
     try {
       const res = await axios.post('/api/register', formdata);
       alert(res.data.message);
-      if (res.status === 201 || res.status===409) {
-        history.push('/Login');
+      if (res.status === 201) {
+        Navigate('/Login');
       }
+      
     } catch (error) {
       const res = error.response;
       alert(res.data.message);
+      if (res.status===409) {
+        Navigate('/Login');
+      }
     }
 };
   return (
@@ -47,16 +49,17 @@ const Signup = () => {
     <label htmlFor='userType'>User Type</label>
           <select id='userType' name='userType' value={formdata.userType} onChange={handleonChange}>
             <option value='' disabled defaultValue>Select a user type</option>
-            <option value='Receipent'>Receipent</option>
+            <option value='Recipient'>Recipient</option>
             <option value='Healthcare Professional'>Healthcare Professional</option>
             <option value='Healthcare Facility'>Healthcare Facility</option>
+            <option value='Blood Donation Camp'>Blood Donation Camp</option>
           </select>
     <label htmlFor="email">E-mail Address</label>
-    <input type="email" id="email" name="email" value={formdata.email}onChange={handleonChange} placeholder='Enter your E-mail'></input>
+    <input type="email" id="email" name="email" value={formdata.email}onChange={handleonChange} placeholder='Enter E-mail'></input>
     <label htmlFor="password">Password</label>
-    <input type="password" id="passsword" name="password" value={formdata.password}onChange={handleonChange} placeholder='Enter your Password'></input>
+    <input type="password" id="passsword" name="password" value={formdata.password}onChange={handleonChange} placeholder='Enter Password'></input>
     <label htmlFor="confirm password">Confirm Password</label>
-    <input type="password" id="confirmpassword" name="confirmPassword" value={formdata.confirmPassword}onChange={handleonChange}placeholder='Enter your Password Again'></input>
+    <input type="password" id="confirmpassword" name="confirmPassword" value={formdata.confirmPassword}onChange={handleonChange}placeholder='Enter Password Again'></input>
     <div className="button-container">
     <button type='submit' >Submit</button>
     </div>
