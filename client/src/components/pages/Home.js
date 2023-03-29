@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from "../config/axios";
-import '../styles/Home.css';
-import image1 from '../assets/logo/patientregistration.avif' 
-import image2 from "../assets/logo/Healthregistration.avif"
-import image3 from "../assets/logo/HealthCare Professional Registration.png"
-import image4 from"../assets/logo/blooddonation.png";
+import axios from "../../config/axios";
+import '../../styles/Home.css';
+import image1 from '../../assets/logo/patientregistration.avif' 
+import image2 from "../../assets/logo/Healthregistration.avif"
+import image3 from "../../assets/logo/HealthCare Professional Registration.png"
+import image4 from"../../assets/logo/blooddonation.png";
 function Home() {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -46,7 +46,7 @@ function Home() {
 
 
   async function fetchUserCount() {
-    const response = await axios.get("/users/analysis");
+    const response = await axios.get("/api/analysis");
     setUserCount(response.data.countRecipient);
     setProfessionalsCount(response.data.countProfessionals);
     setFacilityCount(response.data.countFacilities);

@@ -24,8 +24,9 @@ connectDB()
 app.get('/', (_req, res) => res.send("Welcome to Server"));
 
 const authRoutes = require('./src/routes/authRoutes')
-app.use('/api', authRoutes);
+app.use('/api/auth', authRoutes);
 
 const compStatsRoutes = require('./src/routes/compStatsRoutes')
-app.use('/users', compStatsRoutes)
+app.use('/api/analysis', compStatsRoutes)
+
 

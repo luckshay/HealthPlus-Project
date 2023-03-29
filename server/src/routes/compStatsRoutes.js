@@ -3,6 +3,6 @@ const {analysis} = require('../controllers/compStatsController');
 
 const router = express.Router();
 
-router.get('/analysis', analysis);
+router.get('/', analysis);
 
 module.exports = router;

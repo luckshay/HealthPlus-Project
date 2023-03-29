@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/About.css'
+import '../../styles/About.css'
 const Aboutpage = () => {
   return (
     <div className="Aboutcontainer">
@@ -12,7 +12,7 @@ const Aboutpage = () => {
 
            </div>
            <div className="hero-img">
-          <img src={require("../assets/images/about-us-main-image.jpg")} alt={"about-us-main"}width="80%"></img>
+          <img src={require("../../assets/images/about-us-main-image.jpg")} alt={"about-us-main"}width="80%"></img>
           </div>
         </section>
 
@@ -21,7 +21,7 @@ const Aboutpage = () => {
         <h5>OUR MOTTO</h5>
           <div className="motto-content">
           <div className="motto-image">
-            <img src={require("../assets/images/about-us-motto-image.jpg")} alt={"about-us-motto"}width="80%"></img>
+            <img src={require("../../assets/images/about-us-motto-image.jpg")} alt={"about-us-motto"}width="80%"></img>
           </div>
           <div className="motto-text">
           <p>At HealthPlus, we believe that every patient deserves the best possible care and that every healthcare provider deserves the tools and resources to deliver that care efficiently and effectively. That's why we have created a comprehensive platform that brings together patients, healthcare providers, and other stakeholders to facilitate better communication, collaboration, and decision-making.</p>
@@ -35,7 +35,7 @@ const Aboutpage = () => {
   Our platform is built on the latest technologies and industry standards, ensuring maximum security, reliability, and scalability. With a user-friendly interface and intuitive navigation, our platform is easy to use for everyone, regardless of their technical expertise.
   </div>
   <div className="user-friendly-image">
-    <img src={require("../assets/images/about-us-user-friendly-image.jpg")} alt={"about-us-user-friendly"}></img>
+    <img src={require("../../assets/images/about-us-user-friendly-image.jpg")} alt={"about-us-user-friendly"}></img>
   </div>
 </section>
         {/* vision section */}
@@ -46,7 +46,7 @@ const Aboutpage = () => {
           <p>We are committed to continuous improvement and innovation, and we work closely with our clients and partners to ensure that our platform meets their evolving needs and expectations. Our team of experts brings extensive experience in healthcare analytics, software development, and data science, and we are always looking for new ways to leverage technology to improve healthcare outcomes.</p>
           </div>
           <div className="vision-image">
-            <img src={require("../assets/images/about-us-our-vision.jpg")} alt={"our vision"}></img>
+            <img src={require("../../assets/images/about-us-our-vision.jpg")} alt={"our vision"}></img>
           </div>
           
           </div>

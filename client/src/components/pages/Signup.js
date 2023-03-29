@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from '../config/axios';
-import '../styles/Login_Signup.css'
+import axios from '../../config/axios';
+import '../../styles/Login_Signup.css'
 const Signup = () => {
     const Navigate=useNavigate();
 
@@ -22,7 +22,7 @@ const Signup = () => {
     e.preventDefault();
     
     try {
-      const res = await axios.post('/api/register', formdata);
+      const res = await axios.post('/api/auth/register', formdata);
       alert(res.data.message);
       if (res.status === 201) {
         Navigate('/Login');
@@ -40,7 +40,7 @@ const Signup = () => {
     <>
     <div className="container">
       <div className="image-container">
-        <img src={require("../assets/loginbg.png")}alt={"Doctor Logo"}></img>
+        <img src={require("../../assets/loginbg.png")}alt={"Doctor Logo"}></img>
       </div>
     <form className="login-form" onSubmit={handle}>
     <h2>SIGNUP</h2><br></br>

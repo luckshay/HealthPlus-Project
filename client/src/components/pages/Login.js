@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
-import axios from '../config/axios'
-import '../styles/Login_Signup.css'
-const Login = () => {
-  const Navigate = useNavigate()
+import axios from '../../config/axios'
+import '../../styles/Login_Signup.css'
+const Login = ({handleLogin}) => {
     const [formdata,setformdata]=useState({
         email:"",
         userType:"",
@@ -14,18 +13,20 @@ const Login = () => {
     const handleonChange=(e)=>{
         let val=e.target.value;
         let name=e.target.name;
-        console.log(formdata);
 
         setformdata({...formdata,[name]:val})
     }
   
+    const navigate=useNavigate();
+
     const handle = async (e) => {
       e.preventDefault();
 
       try {
-        const res = await axios.post('/api/login', formdata);
+        const res = await axios.post('/api/auth/login', formdata);
         alert(res.data.message);
-        Navigate('/Profile');
+        handleLogin(formdata.userType)
+        navigate('/dashboard')
       } catch (error) {
         const res = error.response;
         alert(res.data.message);
@@ -36,7 +37,7 @@ const Login = () => {
     <>
     <div className="container">
       <div className="image-container">
-        <img src={require("../assets/loginbg.png")} alt={"Doctor Logo"}></img>
+        <img src={require("../../assets/loginbg.png")} alt={"Doctor Logo"}></img>
       </div>
     <form className="login-form" onSubmit={handle} >
     <h2>LOGIN</h2><br></br>
