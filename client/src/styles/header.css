@@ -105,3 +105,29 @@
 	}
   }
   
+  @media screen and (min-width: 1025px) {
+	header .nav-btn {
+	  display: none;
+	}
+  
+	nav {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: flex-end;
+	  position: static;
+	  width: auto;
+	  height: auto;
+	  background-color: transparent;
+	  transition: none;
+	}
+  
+	nav a {
+	  margin: 0;
+	  font-size: 1.2rem;
+	}
+  
+	nav .nav-close-btn {
+	  display: none;
+	}
+  }
+  
