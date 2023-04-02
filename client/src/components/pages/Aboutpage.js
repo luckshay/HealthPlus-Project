@@ -18,7 +18,8 @@ const Aboutpage = () => {
     {/* motto section     */}
         <section className="section-b" align="center">
           <div className="section-b-image">
-            <img src={require("../../assets/images/about-us-motto-image.jpg")} alt={"about-us-motto"}></img>
+            <img src={require("../../assets/images/about-us-motto-image.jpg")} alt={"about-us-motto"} width="80%"></img>
+            {/* yeh wali li */}
           </div>
           <div className="section-b-content">
           <h1>OUR MOTTO</h1>

@@ -5,6 +5,10 @@ import image1 from '../../assets/logo/patientregistration.avif'
 import image2 from "../../assets/logo/Healthregistration.avif"
 import image3 from "../../assets/logo/HealthCare Professional Registration.png"
 import image4 from"../../assets/logo/blooddonation.png";
+import image5 from "../../assets/images/patient-registration-no--homepage.jpeg"
+import image6 from "../../assets/images/Health-facility-registry-homepage.jpeg"
+import image7 from "../../assets/images/Health-care-professionals-registry-homepage.jpeg"
+import image8 from "../../assets/images/blooddonation-camp-homepage.jpg"
 function Home() {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -17,25 +21,74 @@ function Home() {
       id: 1,
       title: 'Paitent Registration Number',
       image: image1,
-      content: 'Tab 1 Content',
+      content: (
+        <div className="tab-content-wrapper">
+          <div className="tab-content-image">
+            <img src={image5} alt="Patient" />
+          </div>
+          <div className="tab-content-text">
+            <p>
+              Patient registration on a healthcare website involves collecting personal and medical information to initiate medical care. This process helps healthcare providers maintain accurate records, track medical histories, and monitor treatments. By registering as a patient, individuals can ensure timely and effective medical care, while healthcare providers can deliver quality services.
+            </p>
+          </div>
+        </div>
+      ),
     },
+      // content: 'Tab 1 Content',
+    ///},
     {
       id: 2,
       title: 'Health Facility Registration',
       image: image2,
-      content: 'Tab 2 Content',
+      //content: 'Tab 2 Content',
+      content: (
+        <div className="tab-content-wrapper">
+          <div className="tab-content-image">
+            <img src={image6} alt="Patient" />
+          </div>
+          <div className="tab-content-text">
+            <p>
+            The Health Facility Registry is a comprehensive repository of all the country's health facilities across various medical systems. It encompasses both public and private health facilities, such as hospitals, clinics, diagnostic laboratories and imaging centres, pharmacies, and so on.
+            </p>
+          </div>
+        </div>
+      ),
     },
     {
       id: 3,
       title: 'HealthCare Professional Registration ',
       image: image3,
-      content: 'Tab 3 Content',
+      //content: 'Tab 3 Content',
+      content: (
+        <div className="tab-content-wrapper">
+          <div className="tab-content-image">
+            <img src={image7} alt="Patient" />
+          </div>
+          <div className="tab-content-text">
+            <p>
+              Patient registration on a healthcare website involves collecting personal and medical information to initiate medical care. This process helps healthcare providers maintain accurate records, track medical histories, and monitor treatments. By registering as a patient, individuals can ensure timely and effective medical care, while healthcare providers can deliver quality services.
+            </p>
+          </div>
+        </div>
+      ),
     },
     {
       id: 4,
       title: 'Blood Donation ',
       image: image4,
-      content: 'Tab  Content',
+    //  content: 'Tab  Content',
+    content: (
+      <div className="tab-content-wrapper">
+        <div className="tab-content-image4">
+          <img src={image8} alt="Patient" />
+        </div>
+        <div className="tab-content-text">
+          <p>
+            Patient registration on a healthcare website involves collecting personal and medical information to initiate medical care. This process helps healthcare providers maintain accurate records, track medical histories, and monitor treatments. By registering as a patient, individuals can ensure timely and effective medical care, while healthcare providers can deliver quality services.
+          </p>
+        </div>
+      </div>
+    ),
     },
   ];
 
@@ -81,8 +134,8 @@ function Home() {
             key={tab.id}
             className={`content ${activeTab === tab.id ? 'active' : ''}`}
           >
-            <h2>{tab.content}</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>{tab.content}</p>
+            
           </div>
         ))}
       </div>

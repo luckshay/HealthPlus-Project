@@ -61,3 +61,40 @@
     display: block;
   }
   
+/* new  */
+  .tab-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tab-content-image {
+    flex-basis: 50%;
+    padding-right: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .tab-content-image img {
+    width: 90%;
+    height: auto;
+    
+  }
+  /* .tab-content-image4 img{
+    width: 500px;
+  } */
+  .tab-content-image4 img{
+    width:370px;
+    height: 250px;
+    margin: auto;
+    margin-left: 40px;
+  }
+  
+  .tab-content-text {
+    flex-basis: 50%;
+  }
+  
+  .tab-content-text p {
+    font-size: 16px;
+    line-height: 2;
+    margin: 0;
+  }
