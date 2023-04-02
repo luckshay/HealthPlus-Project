@@ -1,19 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
-
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: "Titillium Web", sans-serif;
-}
-
-:root {
+  }
+  
+  :root {
 	--mainColor: #5271ff;
 	--secondaryColor: #527fff;
 	--textColor: #eee;
-}
-
-header {
+  }
+  
+  header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -21,83 +18,116 @@ header {
 	padding: 0 2rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
-}
-
-header h2 {
-	flex:1;
-}
-
-nav {
+  }
+  
+  header h2 {
+	flex: 1;
+  }
+  
+  nav {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	justify-content: flex-end;
-}
-
-nav a {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--mainColor);
+	transition: all 0.3s ease-in-out;
+  }
+  
+  nav.nav-active {
+	right: 0;
+  }
+  
+  nav a {
 	display: block;
-	margin: 0 1rem;
-	padding: 10px 20px;
+	margin: 0.5rem 0;
+	padding: 1rem;
 	color: var(--textColor);
 	text-decoration: none;
-	font-size:1.2rem;
-	transition: all 0.3s ease;
-}
-
-nav a:hover {
+	font-size: 1.2rem;
+	transition: all 0.3s ease-in-out;
+  }
+  
+  nav a:hover {
 	background-color: var(--secondaryColor);
-	padding: 10px 20px;
-}
-
-header .nav-btn {
-	padding: 5px;
+  }
+  
+  nav .nav-close-btn {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 	cursor: pointer;
 	background: transparent;
 	border: none;
 	outline: none;
 	color: var(--textColor);
-	visibility: hidden;
-	opacity: 0;
 	font-size: 1.8rem;
-}
- 
-@media only screen and (max-width: 1024px) {
-	header .nav-btn {
-		visibility: visible;
-		opacity: 1;
+  }
+  
+  nav .nav-btn {
+	display: none;
+  }
+  
+  @media screen and (max-width: 1024px) {
+	nav {
+	  width: 70%;
 	}
-
-	header nav {
-		position: fixed;
-		top: -100vh;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		background-color: var(--mainColor);
-		transition: 1s;
-	}
-
-	header .responsive_nav {
-		transform: translateY(100vh);
-	}
-
-	nav .nav-close-btn {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
-	}
-
+  
 	nav a {
-		font-size: 1.5rem;
-		transition: all 0.3s ease;
+	  font-size: 1.5rem;
 	}
-
-	nav a:hover {
-		background-color: var(--secondaryColor);
-		padding: 10px 20rem;
+  
+	header .nav-btn {
+	  display: block;
+	  cursor: pointer;
+	  background: transparent;
+	  border: none;
+	  outline: none;
+	  color: var(--textColor);
+	  font-size: 1.8rem;
 	}
-}
+  
+	nav .nav-btn {
+	  display: block;
+	  position: absolute;
+	  top: 1rem;
+	  right: 1rem;
+	  cursor: pointer;
+	  background: transparent;
+	  border: none;
+	  outline: none;
+	  color: var(--textColor);
+	  font-size: 1.8rem;
+	}
+  }
+  
+  @media screen and (min-width: 1025px) {
+	header .nav-btn {
+	  display: none;
+	}
+  
+	nav {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: flex-end;
+	  position: static;
+	  width: auto;
+	  height: auto;
+	  background-color: transparent;
+	  transition: none;
+	}
+  
+	nav a {
+	  margin: 0;
+	  font-size: 1.2rem;
+	}
+  
+	nav .nav-close-btn {
+	  display: none;
+	}
+  }
+  
