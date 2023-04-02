@@ -3,7 +3,6 @@ const Query = require('../models/query');
 exports.userquery = async(req, res) =>{
     try{
         const userQuery=req.body;
-        console.log(userQuery);
         const query = new Query({
             userName: userQuery.name,
             userEmail: userQuery.email,
