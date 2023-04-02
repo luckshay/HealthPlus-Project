@@ -50,7 +50,7 @@ footer {
 }
 
 .link_lists ul li a:hover {
-  color: var(--mainColor);
+  color: #f5f5f582;
 }
 
 .contact {
