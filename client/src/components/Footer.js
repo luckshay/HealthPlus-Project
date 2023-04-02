@@ -11,9 +11,9 @@ const Footer = () => {
                     <li><h3>Address</h3></li>
                     <li>HealthPlus, Chitkara University, Rajpura, Patiala - 140401</li>
                     <li><h3>E-Mail</h3></li>
-                    <li><a href="mailto: healthplus@gmail.org">healthplus@gmail.org</a></li>
+                    <li><a href="mailto:healthplus@gmail.org">healthplus@gmail.org</a></li>
                     <li><h3>Toll-Free Number</h3></li>
-                    <li>1800-00-0000</li>
+                    <li><a href="tel:1800-00-0000">1800-00-0000</a></li>
                     {/* <li><h3>Social Media</h3></li> */}
                     <li>
                     <div className="icon_container">

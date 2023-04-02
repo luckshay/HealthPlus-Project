@@ -84,8 +84,9 @@ const ContactPage = (props) => {
             <p>HealthPlus, Chitkara University</p>
             <p>Rajpura, Patiala - 140401</p>
             <h4>Toll-Free Number</h4>
-            <p>1800-00-0000</p>
-            <p>Email: info@healthplus.com</p>
+            <p><a href="tel:1800-00-0000">1800-00-0000</a></p>
+            <h4>E-Mail</h4>
+            <p><a href="mailto:healthplus@gmail.org">healthplus@gmail.org</a></p>
           </div>
           <div className="map">
             <h3>Map</h3>
