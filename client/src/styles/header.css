@@ -13,15 +13,15 @@
   header {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 	height: auto;
-	padding: 0 2rem;
+	padding: 0 5rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
   }
   
   header h2 {
-	flex: 1;
+	flex: 	1;
   }
   
   nav {
@@ -113,7 +113,7 @@
 	nav {
 	  display: flex;
 	  flex-direction: row;
-	  justify-content: flex-end;
+	  justify-content: space-between;
 	  position: static;
 	  width: auto;
 	  height: auto;

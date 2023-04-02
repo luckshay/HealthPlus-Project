@@ -1,6 +1,6 @@
 const { PythonShell } = require('python-shell');
 
-exports.analysis = async (req, res) => {
+exports.analysis = async (_req, res) => {
     try {
         let options = {
             mode: 'text',
