@@ -62,7 +62,7 @@ function Home() {
 
   return (
     <>
-    <div className="Homecontainer">
+    <div className="components">
       <div className="top-section">
         {tabContent.map((tab) => (
           <div
@@ -87,14 +87,32 @@ function Home() {
         ))}
       </div>
     </div>
-    <div>
-      Number Of Recipients Registered: {userCount}
-      Number Of Health Professionals Registered: {professionalsCount}
-      Number Of HealthCare Facilities Registered: {facilityCount}
-      Number Of Blood Donation Camps Registered: {campCount}
-      
-    </div>
-    </>
+    <div className='statistics'>
+      <h1>HealthPlus Components Statistics</h1>
+      <div className='stats-row'>
+        <div className='RecipientsReg'>
+          <img /*src={require("./")}*/alt={"RecipientsReg"}></img>
+          <h3>{userCount}</h3>
+          <p>HealthPlus Recipients Registered</p>
+      </div>
+      <div className='ProfessionalsReg'>
+        <img /*src={require("./")}*/alt={"ProfessionalsReg"}></img>
+        <h3>{professionalsCount}</h3>
+        <p>HealthPlus Professionals Registered</p>
+      </div>
+      <div className='FacilityReg'>
+        <img /*src={require("./")}*/alt={"FacilityReg"}></img>
+        <h3>{facilityCount}</h3>
+        <p>HealthPlus Facilities Registered</p>
+      </div>
+      <div className='CampsOrg'>
+        <img /*src={require("./")}*/alt={"CampsOrg"}></img>
+        <h3>{campCount}</h3>
+        <p>HealthPlus Blood Donation Camps Registered</p>
+      </div> 
+    </div>  
+  </div>
+  </>
   );
 }
 
