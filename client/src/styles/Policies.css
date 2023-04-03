@@ -1,11 +1,42 @@
-.Policycontainer {
-    width: 100%;
-    max-width: 85rem;
-    margin: 50px auto;
-    padding: 2rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;    
-  }
+.policy-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.policy-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #eff2ff;
+  width: 20%;
+  padding: 10px;
+  height: 90vh;
+}
+
+.policy-sidebar-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  height: 20vh;
+}
+
+.policy-sidebar-item:hover {
+  background-color: #bdc9ff;
+  color: rgb(244, 244, 244);
+}
+
+.policy-sidebar-item.selected {
+  background-color: #a3b4ff;
+  color: white;
+}
+.policy-sidebar-item h3{
+  padding: 10px;
+  font-size: 20px;
+}
+.policy-content {
+  flex: 1;
+  margin-left: 40px;
+}
