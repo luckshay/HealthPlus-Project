@@ -1,21 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../../config/axios";
 import '../../styles/Home.css';
-import image1 from '../../assets/logo/patientregistration.avif' 
-import image2 from "../../assets/logo/Healthregistration.avif"
-import image3 from "../../assets/logo/HealthCare Professional Registration.png"
-import image4 from"../../assets/logo/blooddonation.png";
+import image1 from '../../assets/logo/patient-registration-logo-homepage.jpeg' 
+import image2 from "../../assets/logo/health-Facility-registration-logo-homepage.jpeg"
+import image3 from "../../assets/logo/health-care-professional-registration-homepage.jpeg"
+import image4 from"../../assets/logo/blood-donation-homepage.png";
 import image5 from "../../assets/images/patient-registration-no--homepage.jpeg"
 import image6 from "../../assets/images/Health-facility-registry-homepage.jpeg"
 import image7 from "../../assets/images/Health-care-professionals-registry-homepage.jpeg"
 import image8 from "../../assets/images/blooddonation-camp-homepage.jpg"
 function Home() {
   const [activeTab, setActiveTab] = useState(1);
-
+  const [hoverTab, setHoverTab] = useState(null);
+  // const handleTabClick = (tabNumber) => {
+  //   setActiveTab(tabNumber);
+  // };
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
+    setHoverTab(null);
   };
-
+  
+  const handleTabHover = (tabNumber) => {
+     setHoverTab(tabNumber);
+  };
+  
+  const handleTabLeave = () => {
+    setHoverTab(null);
+  };
+  
   const tabContent = [
     {
       id: 1,
@@ -34,8 +46,7 @@ function Home() {
         </div>
       ),
     },
-      // content: 'Tab 1 Content',
-    ///},
+
     {
       id: 2,
       title: 'Health Facility Registration',
@@ -58,7 +69,6 @@ function Home() {
       id: 3,
       title: 'HealthCare Professional Registration ',
       image: image3,
-      //content: 'Tab 3 Content',
       content: (
         <div className="tab-content-wrapper">
           <div className="tab-content-image">
@@ -118,12 +128,21 @@ function Home() {
     <div className="components">
       <div className="top-section">
         {tabContent.map((tab) => (
+          // <div
+          //   key={tab.id}
+          //   className={`tab ${activeTab === tab.id ? 'active' : ''}`}
+          //   onClick={() => handleTabClick(tab.id)}
+          // >
           <div
-            key={tab.id}
-            className={`tab ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => handleTabClick(tab.id)}
-          >
-            <img src={tab.image} alt={tab.title} />
+  key={tab.id}
+  className={`tab ${activeTab === tab.id ? 'active' : ''} ${
+    hoverTab === tab.id ? 'hover' : ''
+  }`}
+  onClick={() => handleTabClick(tab.id)}
+  onMouseEnter={() => handleTabHover(tab.id)}
+  onMouseLeave={handleTabLeave}
+>
+            <img src={tab.image} alt={tab.title}  style={{ borderRadius: '50%' }} />
             <h3>{tab.title}</h3>
           </div>
         ))}
