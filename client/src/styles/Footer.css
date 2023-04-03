@@ -66,6 +66,7 @@ footer {
 .icon_container .icon {
   width: 2.5rem;
   height: 2.5rem;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;

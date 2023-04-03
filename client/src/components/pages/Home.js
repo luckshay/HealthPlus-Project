@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "../../config/axios";
-import '../../styles/Home.css';
-import image1 from '../../assets/logo/patient-registration-logo-homepage.jpeg' 
-import image2 from "../../assets/logo/health-Facility-registration-logo-homepage.jpeg"
-import image3 from "../../assets/logo/health-care-professional-registration-homepage.jpeg"
-import image4 from"../../assets/logo/blood-donation-homepage.png";
-import image5 from "../../assets/images/patient-registration-no--homepage.jpeg"
-import image6 from "../../assets/images/Health-facility-registry-homepage.jpeg"
-import image7 from "../../assets/images/Health-care-professionals-registry-homepage.jpeg"
-import image8 from "../../assets/images/blooddonation-camp-homepage.jpg"
+import "../../styles/Home.css";
+import image1 from "../../assets/logo/patient-registration-logo-homepage.svg";
+import image2 from "../../assets/logo/health-Facility-registration-logo-homepage.svg";
+import image3 from "../../assets/logo/health-care-professional-registration-homepage.avif";
+import image4 from "../../assets/logo/blood-donation-homepage.avif";
+import image5 from "../../assets/images/patient-registration-no--homepage.jpeg";
+import image6 from "../../assets/images/Health-facility-registry-homepage.jpeg";
+import image7 from "../../assets/images/Health-care-professionals-registry-homepage.jpeg";
+import image8 from "../../assets/images/blooddonation-camp-homepage.jpg";
 function Home() {
   const [activeTab, setActiveTab] = useState(1);
   const [hoverTab, setHoverTab] = useState(null);
@@ -19,19 +19,19 @@ function Home() {
     setActiveTab(tabNumber);
     setHoverTab(null);
   };
-  
+
   const handleTabHover = (tabNumber) => {
-     setHoverTab(tabNumber);
+    setHoverTab(tabNumber);
   };
-  
+
   const handleTabLeave = () => {
     setHoverTab(null);
   };
-  
+
   const tabContent = [
     {
       id: 1,
-      title: 'Paitent Registration Number',
+      title: "Patient Registration",
       image: image1,
       content: (
         <div className="tab-content-wrapper">
@@ -40,7 +40,12 @@ function Home() {
           </div>
           <div className="tab-content-text">
             <p>
-              Patient registration on a healthcare website involves collecting personal and medical information to initiate medical care. This process helps healthcare providers maintain accurate records, track medical histories, and monitor treatments. By registering as a patient, individuals can ensure timely and effective medical care, while healthcare providers can deliver quality services.
+              Patient registration on a healthcare website involves collecting
+              personal and medical information to initiate medical care. This
+              process helps healthcare providers maintain accurate records,
+              track medical histories, and monitor treatments. By registering as
+              a patient, individuals can ensure timely and effective medical
+              care, while healthcare providers can deliver quality services.
             </p>
           </div>
         </div>
@@ -49,9 +54,8 @@ function Home() {
 
     {
       id: 2,
-      title: 'Health Facility Registration',
+      title: "Health Facility Registration",
       image: image2,
-      //content: 'Tab 2 Content',
       content: (
         <div className="tab-content-wrapper">
           <div className="tab-content-image">
@@ -59,7 +63,11 @@ function Home() {
           </div>
           <div className="tab-content-text">
             <p>
-            The Health Facility Registry is a comprehensive repository of all the country's health facilities across various medical systems. It encompasses both public and private health facilities, such as hospitals, clinics, diagnostic laboratories and imaging centres, pharmacies, and so on.
+              The Health Facility Registry is a comprehensive repository of all
+              the country's health facilities across various medical systems. It
+              encompasses both public and private health facilities, such as
+              hospitals, clinics, diagnostic laboratories and imaging centres,
+              pharmacies, and so on.
             </p>
           </div>
         </div>
@@ -67,7 +75,7 @@ function Home() {
     },
     {
       id: 3,
-      title: 'HealthCare Professional Registration ',
+      title: "HealthCare Professional Registration ",
       image: image3,
       content: (
         <div className="tab-content-wrapper">
@@ -76,7 +84,12 @@ function Home() {
           </div>
           <div className="tab-content-text">
             <p>
-              Patient registration on a healthcare website involves collecting personal and medical information to initiate medical care. This process helps healthcare providers maintain accurate records, track medical histories, and monitor treatments. By registering as a patient, individuals can ensure timely and effective medical care, while healthcare providers can deliver quality services.
+              Patient registration on a healthcare website involves collecting
+              personal and medical information to initiate medical care. This
+              process helps healthcare providers maintain accurate records,
+              track medical histories, and monitor treatments. By registering as
+              a patient, individuals can ensure timely and effective medical
+              care, while healthcare providers can deliver quality services.
             </p>
           </div>
         </div>
@@ -84,29 +97,33 @@ function Home() {
     },
     {
       id: 4,
-      title: 'Blood Donation ',
+      title: "Blood Donation Camps",
       image: image4,
-    //  content: 'Tab  Content',
-    content: (
-      <div className="tab-content-wrapper">
-        <div className="tab-content-image4">
-          <img src={image8} alt="Patient" />
+      //  content: 'Tab  Content',
+      content: (
+        <div className="tab-content-wrapper">
+          <div className="tab-content-image4">
+            <img src={image8} alt="Patient" />
+          </div>
+          <div className="tab-content-text">
+            <p>
+              Patient registration on a healthcare website involves collecting
+              personal and medical information to initiate medical care. This
+              process helps healthcare providers maintain accurate records,
+              track medical histories, and monitor treatments. By registering as
+              a patient, individuals can ensure timely and effective medical
+              care, while healthcare providers can deliver quality services.
+            </p>
+          </div>
         </div>
-        <div className="tab-content-text">
-          <p>
-            Patient registration on a healthcare website involves collecting personal and medical information to initiate medical care. This process helps healthcare providers maintain accurate records, track medical histories, and monitor treatments. By registering as a patient, individuals can ensure timely and effective medical care, while healthcare providers can deliver quality services.
-          </p>
-        </div>
-      </div>
-    ),
+      ),
     },
   ];
 
-  const [userCount, setUserCount]= useState(null);
-  const [professionalsCount, setProfessionalsCount]= useState(null);
-  const [facilityCount, setFacilityCount]= useState(null);
-  const [campCount, setCampCount]= useState(null);
-
+  const [userCount, setUserCount] = useState(null);
+  const [professionalsCount, setProfessionalsCount] = useState(null);
+  const [facilityCount, setFacilityCount] = useState(null);
+  const [campCount, setCampCount] = useState(null);
 
   async function fetchUserCount() {
     const response = await axios.get("/api/analysis");
@@ -114,79 +131,76 @@ function Home() {
     setProfessionalsCount(response.data.countProfessionals);
     setFacilityCount(response.data.countFacilities);
     setCampCount(response.data.countCamps);
-    
   }
 
   useEffect(() => {
     fetchUserCount();
     const interval = setInterval(fetchUserCount, 5000);
     return () => clearInterval(interval);
-  }, [])
+  }, []);
 
   return (
     <>
-    <div className="components">
-      <div className="top-section">
-        {tabContent.map((tab) => (
-          // <div
-          //   key={tab.id}
-          //   className={`tab ${activeTab === tab.id ? 'active' : ''}`}
-          //   onClick={() => handleTabClick(tab.id)}
-          // >
-          <div
-  key={tab.id}
-  className={`tab ${activeTab === tab.id ? 'active' : ''} ${
-    hoverTab === tab.id ? 'hover' : ''
-  }`}
-  onClick={() => handleTabClick(tab.id)}
-  onMouseEnter={() => handleTabHover(tab.id)}
-  onMouseLeave={handleTabLeave}
->
-            <img src={tab.image} alt={tab.title}  style={{ borderRadius: '50%' }} />
-            <h3>{tab.title}</h3>
+      <div className="components">
+        <div className="top-section">
+          {tabContent.map((tab) => (
+            <div id="tab"
+              key={tab.id}
+              className={`tab ${activeTab === tab.id ? "active" : ""} ${
+                hoverTab === tab.id ? "hover" : ""
+              }`}
+              onClick={() => handleTabClick(tab.id)}
+              onMouseEnter={() => handleTabHover(tab.id)}
+              onMouseLeave={handleTabLeave}
+            >
+              <img
+                src={tab.image}
+                alt={tab.title}
+                style={{ borderRadius: "50%" }}
+              />
+              
+              <h3>{tab.title}</h3>
+            </div>
+          ))}
+        </div>
+        <div className="bottom-section">
+          {tabContent.map((tab) => (
+            <div
+              key={tab.id}
+              className={`content ${activeTab === tab.id ? "active" : ""}`}
+            >
+              <p>{tab.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="statistics">
+        <h1>HealthPlus Components Statistics</h1>
+        <div className="stats-row">
+          <div className="RecipientsReg">
+            <img src={("https://abdm.gov.in:8081/uploads/ABHA_number_08b34b0423.svg")} alt={"RecipientsReg"}></img>
+            <h3>{userCount}</h3>
+            <p>HealthPlus Recipients Registered</p>
           </div>
-        ))}
-      </div>
-      <div className="bottom-section">
-        {tabContent.map((tab) => (
-          <div
-            key={tab.id}
-            className={`content ${activeTab === tab.id ? 'active' : ''}`}
-          >
-            <p>{tab.content}</p>
-            
+          <div className="ProfessionalsReg">
+            <img src={("	https://abdm.gov.in:8081/uploads/HPR_bcfb3ad8e3.svg")} alt={"ProfessionalsReg"}></img>
+            <h3>{professionalsCount}</h3>
+            <p>HealthPlus Professionals Registered</p>
           </div>
-        ))}
+          <div className="FacilityReg">
+            <img src={("	https://abdm.gov.in:8081/uploads/HFR_2195463482.svg")} alt={"FacilityReg"}></img>
+            <h3>{facilityCount}</h3>
+            <p>HealthPlus Facilities Registered</p>
+          </div>
+          <div className="CampsOrg">
+            <img src={("	https://abdm.gov.in:8081/uploads/successfully_integrators_2368510485.svg")} alt={"CampsOrg"}></img>
+            <h3>{campCount}</h3>
+            <p>HealthPlus Blood Donation Camps Registered</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div className='statistics'>
-      <h1>HealthPlus Components Statistics</h1>
-      <div className='stats-row'>
-        <div className='RecipientsReg'>
-          <img /*src={require("./")}*/alt={"RecipientsReg"}></img>
-          <h3>{userCount}</h3>
-          <p>HealthPlus Recipients Registered</p>
-      </div>
-      <div className='ProfessionalsReg'>
-        <img /*src={require("./")}*/alt={"ProfessionalsReg"}></img>
-        <h3>{professionalsCount}</h3>
-        <p>HealthPlus Professionals Registered</p>
-      </div>
-      <div className='FacilityReg'>
-        <img /*src={require("./")}*/alt={"FacilityReg"}></img>
-        <h3>{facilityCount}</h3>
-        <p>HealthPlus Facilities Registered</p>
-      </div>
-      <div className='CampsOrg'>
-        <img /*src={require("./")}*/alt={"CampsOrg"}></img>
-        <h3>{campCount}</h3>
-        <p>HealthPlus Blood Donation Camps Registered</p>
-      </div> 
-    </div>  
-  </div>
-  </>
+    </>
   );
 }
 
 export default Home;
-
