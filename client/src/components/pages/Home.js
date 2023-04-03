@@ -12,9 +12,7 @@ import image8 from "../../assets/images/blooddonation-camp-homepage.jpg";
 function Home() {
   const [activeTab, setActiveTab] = useState(1);
   const [hoverTab, setHoverTab] = useState(null);
-  // const handleTabClick = (tabNumber) => {
-  //   setActiveTab(tabNumber);
-  // };
+  
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
     setHoverTab(null);
@@ -84,12 +82,7 @@ function Home() {
           </div>
           <div className="tab-content-text">
             <p>
-              Patient registration on a healthcare website involves collecting
-              personal and medical information to initiate medical care. This
-              process helps healthcare providers maintain accurate records,
-              track medical histories, and monitor treatments. By registering as
-              a patient, individuals can ensure timely and effective medical
-              care, while healthcare providers can deliver quality services.
+            Dear HealthPlus users, we are proud to inform you that our website has registered healthcare professionals from various hospitals. These professionals are dedicated to providing high-quality healthcare services to our users. By collaborating with them, we aim to offer you the best healthcare experience possible. Thank you for choosing HealthPlus as your trusted healthcare provider.
             </p>
           </div>
         </div>
@@ -107,12 +100,7 @@ function Home() {
           </div>
           <div className="tab-content-text">
             <p>
-              Patient registration on a healthcare website involves collecting
-              personal and medical information to initiate medical care. This
-              process helps healthcare providers maintain accurate records,
-              track medical histories, and monitor treatments. By registering as
-              a patient, individuals can ensure timely and effective medical
-              care, while healthcare providers can deliver quality services.
+              Dear HealthPlus users, we are excited to inform you that we have collaborated with various hospitals to help you stay updated on upcoming blood donation camps. Through our partnership, we will keep you informed about blood donation camps taking place in these hospitals. Thank you for trusting HealthPlus as your healthcare provider.
             </p>
           </div>
         </div>
@@ -142,6 +130,7 @@ function Home() {
   return (
     <>
       <div className="components">
+      <h1>HealthPlus Components</h1>
         <div className="top-section">
           {tabContent.map((tab) => (
             <div id="tab"
