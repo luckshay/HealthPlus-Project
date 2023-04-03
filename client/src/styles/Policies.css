@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   padding: 20px;
+  flex-wrap: wrap;
 }
 
 .policy-sidebar {
@@ -12,6 +13,9 @@
   width: 20%;
   padding: 10px;
   height: 90vh;
+  width: 100%;
+  max-width: 230px;
+  margin-right: 10px;
 }
 
 .policy-sidebar-item {
@@ -39,4 +43,58 @@
 .policy-content {
   flex: 1;
   margin-left: 40px;
+  line-height: 1.9;
+  padding: 5px;
+  letter-spacing: 1px;
+}
+/* responsive behavior */
+
+@media (min-width: 768px) {
+  .policy-page-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  .policy-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .policy-content {
+    width: calc(100% - 230px);
+  }
+}
+
+@media (min-width: 768px) {
+  .policy-tab {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .policy-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .policy-tab {
+    width: calc(33.33% - 20px);
+    margin-right: 20px;
+  }
+
+  .policy-tab:last-of-type {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .policy-tab {
+    width: calc(25% - 20px);
+  }
 }
