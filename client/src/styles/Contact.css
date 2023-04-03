@@ -1,66 +1,103 @@
 .contact-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin:3rem auto;
+  background-color: #eee;
+  height:fit-content;
+  max-width: 90%;
+}
+
+.form-container {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+  padding: 0 5rem;
+  margin: 2rem auto;
+}
+
+.contact-info {
+  max-width: 50%;
+  padding: 0 5rem;
+  margin: 2rem auto;
+  flex: 1;
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  min-width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0069d9;
+}
+
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.map-container {
+  position: relative;
+  z-index: 0;
+  height: 350px; 
+  margin: 1rem auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
     align-items: center;
+    margin: 2rem auto;
   }
   
-  .form-group {
-    margin-bottom: 20px;
+  .form-container, .contact-info {
+    min-width: 100%;
+    margin:2rem auto;
   }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
   
   input[type="text"],
   input[type="email"],
   textarea {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
+    min-width: 200px;
     border: 1px solid #ccc;
-    font-size: 16px;
-    margin-bottom: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0062cc;
-  }
-  
-  .contact-info {
-    background-color: #f5f5f5;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
-  
-  .contact-info h3 {
-    margin-top: 0;
-  }
-  
-  .map {
-    height: 30rem;
-    border-radius: 5px;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-    .map {
-      margin-top: 20px;
-    }
-  }
-  
+}
+
+

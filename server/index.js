@@ -29,4 +29,5 @@ app.use('/api/auth', authRoutes);
 const compStatsRoutes = require('./src/routes/compStatsRoutes')
 app.use('/api/analysis', compStatsRoutes)
 
-
+const userqueryRoutes = require('./src/routes/userqueryRoutes')
+app.use('/api/userquery', userqueryRoutes)
