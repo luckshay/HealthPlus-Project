@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdPolicy, MdOutlineWeb, MdHealthAndSafety } from "react-icons/md";
 import { BsFillClipboardDataFill } from "react-icons/bs";
 import "../../styles/Policies.css";
+import { useLocation } from "react-router-dom";
 
 const Policypage = () => {
-  const [selectedPolicy, setSelectedPolicy] = useState("Terms and Conditions");
+  const [selectedPolicy, setSelectedPolicy] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const policyName = searchParams.get("name");
+    setSelectedPolicy(policyName || "Terms and Conditions" );
+  }, [location]);
 
   const handlePolicyClick = (policy) => {
     setSelectedPolicy(policy);

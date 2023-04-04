@@ -29,11 +29,11 @@
 
 .policy-sidebar-item:hover {
   background-color: #bdc9ff;
-  color: rgb(244, 244, 244);
+  color: black;
 }
 
 .policy-sidebar-item.selected {
-  background-color: #a3b4ff;
+  background-color: #5271ff;
   color: white;
 }
 .policy-sidebar-item h3{

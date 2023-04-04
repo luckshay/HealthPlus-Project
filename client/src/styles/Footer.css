@@ -16,7 +16,7 @@
 footer {
   background-color: var(--secondaryColor);
   color: var(--textColor);
-  padding: 3rem 1.5rem;
+  padding: 1rem 3rem;
 }
 
 .footer_container {
@@ -29,7 +29,7 @@ footer {
 }
 
 .link_lists {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .link_lists h2 {
@@ -43,14 +43,15 @@ footer {
   line-height: 1.5;
 }
 
-.link_lists ul li a {
+.link_lists ul li a,span {
   color: var(--textColor);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.link_lists ul li a:hover {
-  color: #f5f5f582;
+.link_lists ul li span:hover {
+  transform: scale(2);
 }
 
 .contact {
