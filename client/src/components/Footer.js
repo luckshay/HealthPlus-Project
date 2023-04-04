@@ -1,13 +1,29 @@
 import React from "react";
 import "../styles/Footer.css";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
+import {useNavigate} from "react-router-dom";
+
 const Footer = () => {
+
+  const Navigate = useNavigate();
+
+  const handleLinkClick = (policy) => {
+    Navigate(`/policies?name=${policy}`);
+  };
+
+  const spanElements = document.querySelectorAll('span');
+  spanElements.forEach(spanElement => {
+    spanElement.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
   return (
     <>
       <footer>
         <div className="footer_container">
           <div className="link_lists">
-            <h2>Contact</h2>
+          <h2 style={{cursor:"pointer"}} onClick={() => {Navigate('/Contact'); window.scrollTo({ top: 0, behavior: 'smooth' });}}>Contact</h2>
             <ul className="contact">
               <li>
                 <h3>Address</h3>
@@ -51,40 +67,40 @@ const Footer = () => {
           <div className="link_lists">
             <h2>Important Links</h2>
             <ul>
-              <li>
-                <a href="/">Ministry of Health and Family Welfare</a>
+            <li>
+                <span onClick={() =>Navigate('/Signup')}>HealthPlus Recipeints Registry</span>
               </li>
               <li>
-                <a href="/">Ayushman Bharat Health Account (ABHA)</a>
+                <span onClick={() =>Navigate('/Signup')}>HealthPlus Professionals Registry</span>
               </li>
               <li>
-                <a href="/">Healthcare Professionals Registry (HPR)</a>
+                <span onClick={() =>Navigate('/Signup')}>HealthPlus Facility Registry</span>
               </li>
               <li>
-                <a href="/">Health Facility Registry (HFR)</a>
+                <span onClick={() =>Navigate('/Signup')}>HealthPlus Blood Donation Camp Registry</span>
               </li>
               <li>
-                <a href="/">Grievance Portal</a>
+                <span onClick={() =>Navigate('/Contact')}>Grievance Portal</span>
               </li>
               <li>
-                <a href="/">Tell us what you think of our website</a>
+                <span onClick={() =>Navigate('/Contact')}>Tell us what you think of our website</span>
               </li>
             </ul>
           </div>
           <div className="link_lists">
-            <h2>Policies</h2>
+          <h2 style={{cursor:"pointer"}} onClick={() => {Navigate('/Policies'); window.scrollTo({ top: 0, behavior: 'smooth' });}}>Policies</h2>
             <ul>
               <li>
-                <a href="/">Terms & Conditions</a>
+              <span onClick={() => handleLinkClick("Terms and Conditions")}>Terms and Conditions</span>
               </li>
               <li>
-                <a href="/">Website Policy</a>
+                <span onClick={() => handleLinkClick("Website Policy")}>Website Policy</span>
               </li>
               <li>
-                <a href="/">Data Privacy Policy</a>
+                <span onClick={() => handleLinkClick("Data Privacy Policy")}>Data Privacy Policy</span>
               </li>
               <li>
-                <a href="/">Health Data Management Policy</a>
+                <span onClick={() => handleLinkClick("Health Data Management Policy")}>Health Data Management Policy</span>
               </li>
             </ul>
           </div>
