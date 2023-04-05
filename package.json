@@ -1,4 +1,10 @@
 {
+  "name": "healthplus-app",
+  "version": "1.0.0",
+  "description": "My MERN Stack App",
+  "scripts": {
+    "start": "node server/index.js" 
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
