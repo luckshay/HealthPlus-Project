@@ -36,16 +36,13 @@ const recipientProfileSchema = new mongoose.Schema({
   },
   medical_history: {
     blood_pressure: {
-      type: Number,
-      required: true
+      type: Number
     },
     blood_sugar: {
-      type: Number,
-      required: true
+      type: Number
     },
     heart_rate: {
       type: Number,
-      required: true
     },
     allergies: [{
       type: String

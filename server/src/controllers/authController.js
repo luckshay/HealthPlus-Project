@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user');
-const recipientProfile = require('../models/recipientProfile');
+// const recipientProfile = require('../models/recipientProfile');
 const validator=require('validator')
 const generateToken = require('../library/authToken');
 
@@ -35,11 +35,6 @@ exports.register = async (req, res) => {
         password: hashedPassword
        });
     await user.save()
-    // Save the health ID to the profile model
-    const recipientProfile = new recipientProfile({
-      healthID: healthID // Add the health ID to the profile model
-    });
-    await recipientProfile.save();
 
     res.status(201).json({ message: 'New User Registered'});
     }
