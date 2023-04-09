@@ -158,7 +158,7 @@ function Home() {
               key={tab.id}
               className={`content ${activeTab === tab.id ? "active" : ""}`}
             >
-              <p>{tab.content}</p>
+              <div>{tab.content}</div>
             </div>
           ))}
         </div>
