@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "../Navbar";
 import { MdPolicy, MdOutlineWeb, MdHealthAndSafety } from "react-icons/md";
 import { BsFillClipboardDataFill } from "react-icons/bs";
 import "../../styles/Policies.css";
@@ -11,7 +12,7 @@ const Policypage = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const policyName = searchParams.get("name");
-    setSelectedPolicy(policyName || "Terms and Conditions" );
+    setSelectedPolicy(policyName || "Terms and Conditions");
   }, [location]);
 
   const handlePolicyClick = (policy) => {
@@ -20,12 +21,12 @@ const Policypage = () => {
 
   return (
     <>
+      <Navbar />
       <div className="policy-page-container">
         <div className="policy-sidebar">
           <div
-            className={`policy-sidebar-item ${
-              selectedPolicy === "Terms and Conditions" ? "selected" : ""
-            }`}
+            className={`policy-sidebar-item ${selectedPolicy === "Terms and Conditions" ? "selected" : ""
+              }`}
             onClick={() => handlePolicyClick("Terms and Conditions")}
           >
             <p className="privacy-icons">
@@ -34,9 +35,8 @@ const Policypage = () => {
             <h3>Terms and Conditions</h3>
           </div>
           <div
-            className={`policy-sidebar-item ${
-              selectedPolicy === "Website Policy" ? "selected" : ""
-            }`}
+            className={`policy-sidebar-item ${selectedPolicy === "Website Policy" ? "selected" : ""
+              }`}
             onClick={() => handlePolicyClick("Website Policy")}
           >
             <p className="privacy-icons">
@@ -45,9 +45,8 @@ const Policypage = () => {
             <h3>Website Policy</h3>
           </div>
           <div
-            className={`policy-sidebar-item ${
-              selectedPolicy === "Data Privacy Policy" ? "selected" : ""
-            }`}
+            className={`policy-sidebar-item ${selectedPolicy === "Data Privacy Policy" ? "selected" : ""
+              }`}
             onClick={() => handlePolicyClick("Data Privacy Policy")}
           >
             <p className="privacy-icons">
@@ -56,11 +55,10 @@ const Policypage = () => {
             <h3>Data Privacy Policy</h3>
           </div>
           <div
-            className={`policy-sidebar-item ${
-              selectedPolicy === "Health Data Management Policy"
+            className={`policy-sidebar-item ${selectedPolicy === "Health Data Management Policy"
                 ? "selected"
                 : ""
-            }`}
+              }`}
             onClick={() => handlePolicyClick("Health Data Management Policy")}
           >
             <p className="privacy-icons">

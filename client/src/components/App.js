@@ -1,11 +1,10 @@
-import React, {useState} from "react";
-import Navbar from "../components/Navbar";
+import React, { useState } from "react";
 
 import {
   BrowserRouter as Router,
   Routes,
   Route
-}from "react-router-dom";
+} from "react-router-dom";
 
 import Home from "../components/pages/Home";
 import Aboutpage from "../components/pages/Aboutpage";
@@ -29,25 +28,24 @@ function App() {
 
   return (
     <>
-    <Router>
-      <Navbar/>
-      <Routes>
-      <Route exact path='/' element={<Home/>}/>
-        <Route exact path='/About' element={<Aboutpage/>}/>
-        <Route exact path='/Contact' element={<Contactpage/>}/>
-        <Route exact path='/Policies' element={<Policypage/>}/>
-        <Route
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/About' element={<Aboutpage />} />
+          <Route exact path='/Contact' element={<Contactpage />} />
+          <Route exact path='/Policies' element={<Policypage />} />
+          <Route
             exact
             path="/Login"
             element={<Login handleLogin={handleLogin} />}
-            />
-        <Route exact path='/Signup' element={<Signup/>}/>
-        {userType === 'Recipient' && <Route exact path="/dashboard" element={<RecipientDash />} />}
-        {userType === 'Healthcare Professional' && <Route exact path="/dashboard" element={<ProDash />} />}
-        {userType === 'Healthcare Facility' && <Route exact path="/dashboard" element={<FacilityDash />} />}
-        {userType === 'Blood Donation Camp' && <Route exact path="/dashboard" element={<CampDash />} />}    
+          />
+          <Route exact path='/Signup' element={<Signup />} />
+          {userType === 'Recipient' && <Route exact path="/dashboard" element={<RecipientDash />} />}
+          {userType === 'Healthcare Professional' && <Route exact path="/dashboard" element={<ProDash />} />}
+          {userType === 'Healthcare Facility' && <Route exact path="/dashboard" element={<FacilityDash />} />}
+          {userType === 'Blood Donation Camp' && <Route exact path="/dashboard" element={<CampDash />} />}
         </Routes>
-      <Footer/>
+        <Footer />
       </Router>
     </>
   );

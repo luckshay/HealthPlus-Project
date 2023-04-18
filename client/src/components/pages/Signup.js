@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import Navbar from "../Navbar";
+import { Link, useNavigate } from 'react-router-dom';
 import axios from '../../config/axios';
-import '../../styles/Login_Signup.css'
+import '../../styles/Login_Signup.css';
 const Signup = () => {
     const Navigate=useNavigate();
 
@@ -38,6 +39,7 @@ const Signup = () => {
 };
   return (
     <>
+    <Navbar/>
     <div className="container">
       <div className="image-container">
         <img src={require("../../assets/loginbg.png")}alt={"Doctor Logo"}></img>

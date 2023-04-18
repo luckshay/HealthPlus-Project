@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../config/axios";
 import "../../styles/Home.css";
+import Navbar from "../Navbar";
 import image1 from "../../assets/logo/patient-registration-logo-homepage.svg";
 import image2 from "../../assets/logo/health-Facility-registration-logo-homepage.svg";
 import image3 from "../../assets/logo/health-care-professional-registration-homepage.avif";
@@ -129,6 +130,7 @@ function Home() {
 
   return (
     <>
+    <Navbar/>
       <div className="components">
       <h1>HealthPlus Components</h1>
         <div className="top-section">
