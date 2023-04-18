@@ -4,6 +4,7 @@ import "../../styles/Dashboard.css";
 import { recipientMenu } from "../../data/side_bar_data";
 
 
+
 const recipientDash = () => {
   return (
     <>
@@ -20,7 +21,7 @@ const recipientDash = () => {
                 return (
                   <>
                   <div className='menu-item'>
-                    <i className={menu.icon}></i>
+                    <menu.icon />
                     <p><Link to ={menu.path}>{menu.name}</Link></p>
                   </div>
                   </>

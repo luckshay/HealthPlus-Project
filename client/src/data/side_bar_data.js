@@ -1,29 +1,31 @@
+import { MdPolicy} from "react-icons/md";
+
 // Recipient Menu
 export const recipientMenu = [
   {
     name: "Home",
     path: "/",
-    icon: "fa-solid fa-house",
+    icon: MdPolicy,
   },
   {
     name: "Appointments",
     path: "/",
-    icon: "fa-solid fa-list",
+    icon: MdPolicy,
   },
   {
     name: "Blood Donation Camps",
     path: "/",
-    icon: "fa-solid fa-list",
+    icon: MdPolicy,
   },
   {
     name: "Update Profile",
     path: "/",
-    icon: "fa-solid fa-user",
+    icon: MdPolicy,
   },
   {
     name: "Logout",
     path: "/",
-    icon: "fa-solid fa-user-doctor",
+    icon: MdPolicy,
   },
 ];
 //Healthcare Professional Menu
