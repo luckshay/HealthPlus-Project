@@ -26,8 +26,7 @@ const Login = ({ handleLogin }) => {
     try {
       const res = await axios.post('/api/auth/login', formdata);
       alert(res.data.message);
-      localStorage.setItem("token", res.data.token)
-      handleLogin(formdata.userType)
+      sessionStorage.setItem("id", res.data.userId)
       navigate('/dashboard')
     } catch (error) {
       const res = error.response;

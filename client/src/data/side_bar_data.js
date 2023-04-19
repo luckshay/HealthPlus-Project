@@ -33,22 +33,22 @@ export const proMenu = [
   {
     name: "Home",
     path: "/",
-    icon: "fa-solid fa-house",
+    icon: MdPolicy,
   },
   {
     name: "Appointments",
     path: "/",
-    icon: "fa-solid fa-list",
+    icon: MdPolicy,
   },
   {
     name: "Update Profile",
     path: "/profile",
-    icon: "fa-solid fa-user",
+    icon: MdPolicy,
   },
   {
     name: "Logout",
     path: "/logout",
-    icon: "fa-solid fa-user-doctor",
+    icon: MdPolicy,
   },
 ];
 

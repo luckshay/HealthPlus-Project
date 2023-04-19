@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   BrowserRouter as Router,
@@ -13,18 +13,11 @@ import Policypage from "../components/pages/Policypage";
 import Login from "../components/pages/Login";
 import Signup from "../components/pages/Signup";
 import Footer from "../components/Footer";
-import RecipientDash from "./dashboard/recipientDash";
-import ProDash from "./dashboard/proDash";
-import FacilityDash from "./dashboard/facilityDash";
-import CampDash from "./dashboard/campDash";
+import Dashboard from "./dashboard/Dashboard";
+
 
 
 function App() {
-  const [userType, setUserType] = useState('');
-
-  const handleLogin = (userType) => {
-    setUserType(userType);
-  }
 
   return (
     <>
@@ -37,13 +30,10 @@ function App() {
           <Route
             exact
             path="/Login"
-            element={<Login handleLogin={handleLogin} />}
+            element={<Login />} 
           />
           <Route exact path='/Signup' element={<Signup />} />
-          {userType === 'Recipient' && <Route exact path="/dashboard" element={<RecipientDash />} />}
-          {userType === 'Healthcare Professional' && <Route exact path="/dashboard" element={<ProDash />} />}
-          {userType === 'Healthcare Facility' && <Route exact path="/dashboard" element={<FacilityDash />} />}
-          {userType === 'Blood Donation Camp' && <Route exact path="/dashboard" element={<CampDash />} />}
+          <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </Router>

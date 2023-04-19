@@ -1,29 +1,16 @@
-const jwt=require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 require('dotenv').config();
 
-const generateToken=function(data){
-    try {
-      data=JSON.stringify(data)
-      const token = jwt.sign({data}, process.env.JWT_SIGN_KEY, {expiresIn: '1d'})
-      return token
-    } catch (err) {
-      console.error(err)
-      return null
-    }
-  };
-  exports.authenticateUser = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) {
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
-    try {
-      const decodedToken = jwt.verify(token, JWT_SECRET);
-      req.user = decodedToken;
-      next();
-    } catch (error) {
-      console.error(error);
-      res.status(401).json({ message: 'Unauthorized' });
-    }
-  };
+const generateToken = function (data) {
+  try {
+    data = JSON.stringify(data)
+    const token = jwt.sign({ data }, process.env.JWT_SIGN_KEY, { expiresIn: '1d' })
+    return token
+  } catch (err) {
+    console.error(err)
+    return null
+  }
+};
 
-  module.exports=generateToken;
+
+module.exports = generateToken;
