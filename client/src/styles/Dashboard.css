@@ -4,16 +4,16 @@
     --textColor: #eee;
 }
 
-.main {
+.hpmain {
     padding: 10px;
     height: 100vh;
 }
 
-.layout {
+.hplayout {
     display: flex;
 }
 
-.sidebar {
+.hpsidebar {
     min-height: 95vh;
     width: 300px;
     border-radius: 5px;
@@ -21,15 +21,16 @@
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
     color: white;
+
 }
 
-.logo {
+.hplogo {
     display: flex;
     flex-direction: column;
     padding-top: 50px;
 }
 
-.logo img {
+.hplogo img {
     height: 100px;
     width: 100px;
     margin-top: 20px;
@@ -37,7 +38,7 @@
     margin: auto;
 }
 
-.logo h1 {
+.hplogo h1 {
     margin: 10px auto;
 }
 
@@ -45,16 +46,60 @@ hr {
     border: 1px solid;
 }
 
-.menu-item p{
+.hpmenu-item {
+    display: flex;
+    padding: 10px;
+    margin-top: 1rem;
+}
+
+.hpmenu-item:hover {
+    background-color: var(--secondaryColor);
+}
+
+.hpmenu-item p {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+
+}
+
+.hpmenu-item p a {
     color: white;
 }
 
-.content {
+.hpmenu-icon {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.hpmainbody{
+    width: 100%;
+}
+.hpheader {
+    height: 3.5rem;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 2px gray;
+    background-color: var(--mainColor);
+}
+.hpheader-content{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+}
+.hpheader-content a{
+    font-size: 20px;
+    margin:auto 18px;
+    color: white;
+    font-weight: 600;
+}
+.hpcontent {
     width: 100%;
     height: 100%;
 }
 
-.body {
+
+.hpbody {
     min-height: 95vh;
     box-shadow: 0 0 2px gray;
     background-color: white;

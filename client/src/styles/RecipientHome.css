@@ -1,0 +1,28 @@
+:root {
+    --mainColor: #5271ff;
+    --secondaryColor: #527fff;
+    --textColor: #eee;
+}
+.appointments-section{
+    display: flex;
+    flex-direction: column;
+}
+.blood-donation-section{
+     display: flex;
+    flex-direction: column;
+}
+.section-heading{
+    padding-left: 10px;
+}
+.card-section{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+.btn-primary {
+  background-color: var(--mainColor);
+  color: #fff;
+}
+.btn-primary:hover{
+    background-color: var(--secondaryColor);
+}
