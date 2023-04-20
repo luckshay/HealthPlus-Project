@@ -7,7 +7,7 @@ const generateToken = require('../library/authToken');
 exports.register = async (req, res) => {
   try {
     const { name, userType, email, password, confirmPassword } = req.body;
-
+    
     if (!validator.isEmail(email)) {
       return res.status(400).json({ message: "Invalid email address", success: false });
     }
@@ -21,22 +21,24 @@ exports.register = async (req, res) => {
     }
 
     const existingUser = await User.findOne({ email, userType });
+    
     if (existingUser) {
       return res.status(409).json({ message: 'User Already Exists', success: false });
     }
     else {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
-
+      
       const user = new User({
         userName: name,
         userType: userType,
         email: email.toLowerCase(),
         password: hashedPassword
       });
+      
       await user.save()
-        ,
-        res.status(201).json({ message: 'New User Registered', success: true });
+
+      res.status(201).json({ message: 'New User Registered', success: true });
     }
   } catch (error) {
     res.status(500).json({ message: 'Something Went Wrong' });
@@ -65,16 +67,16 @@ exports.login = async (req, res) => {
 
 exports.getUserData = async (req, res) => {
   try {
-    const {userId} = req.body;
-    const userData = await User.findOne({ _id: userId});
+    const { userId } = req.body;
+    const userData = await User.findOne({ _id: userId });
     if (!userData) {
       return res.status(401).json({ message: 'User Not Found', token: null, success: false });
     }
-    
-    res.status(200).json({userData});
+
+    res.status(200).json({ userData });
 
   } catch (error) {
     res.status(500).json({ message: 'Something went wrong' });
   }
 }
-  
+

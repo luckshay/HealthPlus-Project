@@ -31,3 +31,6 @@ app.use('/api/analysis', compStatsRoutes)
 
 const userqueryRoutes = require('./src/routes/authRoutes')
 app.use('/api/userquery', userqueryRoutes)
+
+const reciProfileRoutes =require('./src/routes/reciProfileRoutes')
+app.use('/api/reciProfile', reciProfileRoutes)

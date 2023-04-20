@@ -20,7 +20,7 @@ const Sidebar = (props) => {
             {recipientMenu.map(menu => {
               return (
                 <>
-                  <div className='hpmenu-item' key={menu.name}>
+                  <div className='hpmenu-item' key={menu.name+Math.random()}>
                     <div className='hpmenu-icon'><menu.icon size="1.7rem" /></div>
                     <p><Link to={menu.path} onClick={() => handleMenuClick(menu.name)}>{menu.name}</Link></p>
                   </div>
@@ -34,8 +34,9 @@ const Sidebar = (props) => {
             {proMenu.map(menu => {
               return (
                 <>
-                  <div className='hpmenu-item' key={menu.name}>
-                    <div className='hpmenu-icon'><menu.icon size="1.7rem" /></div>
+                  <div className='hpmenu-item' key={menu.name+Math.random()} >
+                    <div className='hpmenu-icon'>
+                      <menu.icon size="1.7rem" /></div>
                     <p><Link to={menu.path} onClick={() => handleMenuClick(menu.name)}>{menu.name}</Link></p>
                   </div>
                 </>

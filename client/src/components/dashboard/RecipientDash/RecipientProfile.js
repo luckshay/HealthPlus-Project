@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../../config/axios"
 
 const RecipientProfile = () => {
     const { id } = useParams();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
     const [isEditing, setIsEditing] = useState(false);
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
@@ -16,8 +16,10 @@ const RecipientProfile = () => {
 
     const fetchUser = async () => {
         try {
-          const response = await axios.get(`/api/users/${id}`);
-          const { data } = response;
+          const response = await axios.get(`/api/reciProfile/users/${id}`);
+          console.log(response)
+          const data  = response;
+          console.log(data)
           setUser(data);
           setName(data.name);
           setAge(data.age);
@@ -34,7 +36,7 @@ const RecipientProfile = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.put(`/users/${user._id}`, {
+            await axios.put(`/api/reciProfile/users/${user._id}`, {
                 name,
                 age,
                 gender,
@@ -44,7 +46,7 @@ const RecipientProfile = () => {
                 bloodGroup,
             });
             setIsEditing(false);
-            fetchUser();
+            await fetchUser();
         } catch (err) {
             console.error(err);
         }
@@ -130,3 +132,34 @@ return (
 };
 
 export default RecipientProfile;
+
+
+
+// const RecipientProfile = ({id}) => {
+//     // const { id } = useParams();
+//     const [userData, setUserData] = useState(null);
+
+//     useEffect(() => {
+//         // Make HTTP request to retrieve user profile data
+//         axios.get(`/api/reciProfile/users/64417da247a9ddb8de0cd44f`)
+//             .then(response => {
+//                 // Set user data in state
+//                 setUserData(response.data);
+//             })
+//             .catch(error => {
+//                 console.error(error);
+//             });
+//     }, [id]);
+
+//     if (!userData) {
+//         return <div>Loading...</div>;
+//     }
+//     return (
+//         <div>
+//             <h1>{userData.userName}</h1>
+//             <p>{userData.email}</p>
+//         </div>
+//     );
+// }
+
+// export default RecipientProfile

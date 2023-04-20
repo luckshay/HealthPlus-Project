@@ -1,26 +1,23 @@
 const mongoose = require('mongoose');
 
 const recipientProfileSchema = new mongoose.Schema({
-  unique_health_id: {
+  userid: {
     type: String,
     required: true,
     unique: true
   },
-  name: {
+  userName: {
     type: String,
     required: true
   },
   age: {
     type: Number,
-    required: true
   },
   gender: {
     type: String,
-    required: true
   },
   contact_no: {
     type: String,
-    required: true
   },
   email: {
     type: String,
@@ -28,11 +25,9 @@ const recipientProfileSchema = new mongoose.Schema({
   },
   address: {
     type: String,
-    required: true
   },
   blood_group: {
     type: String,
-    required: true
   },
   medical_history: {
     blood_pressure: {
@@ -53,11 +48,9 @@ const recipientProfileSchema = new mongoose.Schema({
     prescriptions: [{
       date: {
         type: Date,
-        required: true
       },
       doctor_name: {
         type: String,
-        required: true
       },
       doctor_id: {
         type: mongoose.Schema.Types.ObjectId,
@@ -74,24 +67,22 @@ const recipientProfileSchema = new mongoose.Schema({
     appointments: [{
       date: {
         type: Date,
-        required: true
       },
       doctor_name: {
         type: String,
-        required: true
       },
       doctor_id: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        // required: true,
         ref: 'DoctorProfile'
       },
       hospital_name: {
         type: String,
-        required: true
+        // required: true
       },
       hospital_id: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        // required: true,
         ref: 'HospitalProfile'
       },
       notes: {
@@ -102,16 +93,16 @@ const recipientProfileSchema = new mongoose.Schema({
   blood_donation_history: [{
     donation_date: {
       type: Date,
-      required: true
+      // required: true
     },
     donation_camp_id: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      // required: true,
       ref: 'DonationCampProfile'
     },
     units_donated: {
       type: Number,
-      required: true
+      // required: true
     }
   }]
 });

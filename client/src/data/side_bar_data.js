@@ -1,4 +1,5 @@
-import { MdHome, MdPolicy} from "react-icons/md";
+import { MdHome, MdChecklist, MdOutlineBloodtype, MdOutlineLogout} from "react-icons/md";
+import {ImProfile} from "react-icons/im"
 
 // Recipient Menu
 export const recipientMenu = [
@@ -8,40 +9,40 @@ export const recipientMenu = [
   },
   {
     name: "Appointments",
-    icon: MdPolicy,
+    icon: MdChecklist,
   },
   {
     name: "Blood Donation Camps",
-    icon: MdPolicy,
+    icon: MdOutlineBloodtype,
   },
   {
     name: "Profile Details",
-    icon: MdPolicy,
+    icon: ImProfile,
   },
   {
     name: "Logout",
     path: "/",
-    icon: MdPolicy,
+    icon: MdOutlineLogout,
   },
 ];
 //Healthcare Professional Menu
 export const proMenu = [
   {
     name: "Home",
-    icon: MdPolicy,
+    icon: MdHome,
   },
   {
     name: "Appointments",
-    icon: MdPolicy,
+    icon: MdChecklist,
   },
   {
     name: "Profile",
-    icon: MdPolicy,
+    icon: ImProfile,
   },
   {
     name: "Logout",
     path: "/",
-    icon: MdPolicy,
+    icon: MdOutlineLogout,
   },
 ];
 
@@ -49,19 +50,19 @@ export const proMenu = [
 export const campMenu = [
   {
     name: "Home",
-    icon: MdPolicy,
+    icon: MdHome,
   },
   {
     name: "Appointments",
-    icon: MdPolicy,
+    icon: MdChecklist,
   },
   {
     name: "Update Profile",
-    icon: MdPolicy,
+    icon: ImProfile,
   },
   {
     name: "Logout",
     path: "/",
-    icon: MdPolicy,
+    icon: MdOutlineLogout,
   },
 ];
