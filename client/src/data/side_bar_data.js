@@ -21,7 +21,7 @@ export const recipientMenu = [
   },
   {
     name: "Logout",
-    path: "/",
+    path: "/login",
     icon: MdOutlineLogout,
   },
 ];
@@ -36,12 +36,12 @@ export const proMenu = [
     icon: MdChecklist,
   },
   {
-    name: "Profile",
+    name: "Profile Details",
     icon: ImProfile,
   },
   {
     name: "Logout",
-    path: "/",
+    path: "/login",
     icon: MdOutlineLogout,
   },
 ];
@@ -52,17 +52,21 @@ export const campMenu = [
     name: "Home",
     icon: MdHome,
   },
+  // {
+  //   name: "Blood Donation Camps",
+  //   icon: MdOutlineBloodtype,
+  // },
   {
     name: "Appointments",
     icon: MdChecklist,
   },
   {
-    name: "Update Profile",
+    name: "Profile Details",
     icon: ImProfile,
   },
   {
     name: "Logout",
-    path: "/",
+    path: "/login",
     icon: MdOutlineLogout,
   },
 ];

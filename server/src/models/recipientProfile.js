@@ -10,14 +10,14 @@ const recipientProfileSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  age: {
-    type: Number,
+  dateOfBirth: {
+    type: Date,
   },
   gender: {
     type: String,
   },
   contact_no: {
-    type: String,
+    type: Number,
   },
   email: {
     type: String,

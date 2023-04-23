@@ -1,49 +1,53 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "../../../config/axios"
+import moment from "moment";
+import axios from "../../../config/axios";
 
 const RecipientProfile = () => {
-    const { id } = useParams();
-    const [user, setUser] = useState({});
+    const id = sessionStorage.getItem("id");
+    const [user, setUser] = useState("");
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState("");
-    const [age, setAge] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [isValidDate, setIsValidDate] = useState(true);
+    const [ageYears, setAgeYears] = useState("");
+    const [ageMonths, setAgeMonths] = useState("");
     const [gender, setGender] = useState("");
-    const [contactNo, setContactNo] = useState("");
-    const [email, setEmail] = useState("");
+    const [contact_no, setContactNo] = useState("");
     const [address, setAddress] = useState("");
-    const [bloodGroup, setBloodGroup] = useState("");
+    const [blood_group, setBloodGroup] = useState("");
 
     const fetchUser = async () => {
         try {
-          const response = await axios.get(`/api/reciProfile/users/${id}`);
-          console.log(response)
-          const data  = response;
-          console.log(data)
-          setUser(data);
-          setName(data.name);
-          setAge(data.age);
-          setGender(data.gender);
-          setContactNo(data.contact_no);
-          setEmail(data.email);
-          setAddress(data.address);
-          setBloodGroup(data.blood_group);
+            const response = await axios.get(`/api/reciProfile/users/${id}`);
+            const data = response.data;
+            setUser(data);
+            const formattedDOB = moment(data.dateOfBirth).format("YYYY-MM-DD");
+            setDateOfBirth(formattedDOB)
+            setGender(data.gender);
+            setContactNo(data.contact_no);
+            setAddress(data.address);
+            setBloodGroup(data.blood_group);
+            const years = moment().diff(data.dateOfBirth, "years");
+            const months = moment().diff(data.dateOfBirth, "months") % 12;
+            setAgeYears(years);
+            setAgeMonths(months);
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
-      };
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (!isValidDate) {
+            alert("InValid Date")
+            return;
+        }
         try {
             await axios.put(`/api/reciProfile/users/${user._id}`, {
-                name,
-                age,
+                dateOfBirth,
                 gender,
-                contactNo,
-                email,
+                contact_no,
                 address,
-                bloodGroup,
+                blood_group,
             });
             setIsEditing(false);
             await fetchUser();
@@ -52,114 +56,95 @@ const RecipientProfile = () => {
         }
     };
 
+    const handleEdit = () => {
+        setIsEditing(true);
+    };
 
-const handleEdit = () => {
-    setIsEditing(true);
-};
+    const handleCancel = () => {
+        setIsEditing(false);
+        setDateOfBirth(user.dateOfBirth);
+        setGender(user.gender);
+        setContactNo(user.contact_no);
+        setAddress(user.address);
+        setBloodGroup(user.blood_group);
+    };
 
-const handleCancel = () => {
-    setIsEditing(false);
-    setName(user.name);
-    setAge(user.age);
-    setGender(user.gender);
-    setContactNo(user.contact_no);
-    setEmail(user.email);
-    setAddress(user.address);
-    setBloodGroup(user.blood_group);
-};
+    const handleDateChange = (event) => {
+        const selectedDate = moment(event.target.value);
+        const currentDate = moment();
+        const isValid = selectedDate.isValid() && selectedDate.isSameOrBefore(currentDate);
+        setIsValidDate(isValid);
+        setDateOfBirth(event.target.value);
+    };
 
-if (!user) {
-    return <div>Loading user profile...</div>;
-}
+    useEffect(() => {
+        fetchUser();
+    }, []);
 
-return (
-    <div>
-        {!isEditing && (
-            <div>
-                <h2>User Profile</h2>
-                <div>Name: {user.name}</div>
-                <div>Age: {user.age}</div>
-                <div>Gender: {user.gender}</div>
-                <div>Contact No: {user.contact_no}</div>
-                <div>Email: {user.email}</div>
-                <div>Address: {user.address}</div>
-                <div>Blood Group: {user.blood_group}</div>
-                <button onClick={handleEdit}>Update Profile</button>
-            </div>
-        )}
-        {isEditing && (
-            <form onSubmit={handleSubmit}>
-                <h2>Edit Profile</h2>
+    return (
+        <div>
+            {!isEditing && (
                 <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)} />
+                    <h2>User Profile</h2>
+                    <div>Name: {user.userName}</div>
+                    <div>Email: {user.email}</div>
+                    <div>Date of Birth: {user.dateOfBirth}</div>
+                    <div>Age: {ageYears} years {ageMonths} months</div>
+                    <div>Gender: {user.gender}</div>
+                    <div>Contact No: {user.contact_no}</div>
+                    <div>Address: {user.address}</div>
+                    <div>Blood Group: {user.blood_group}</div>
+                    <button onClick={handleEdit}>Update Profile</button>
                 </div>
-                <div>
-                    <label htmlFor="age">Age:</label>
-                    <input type="number" id="age" value={age} onChange={(event) => setAge(event.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="gender">Gender:</label>
-                    <select id="gender" value={gender} onChange={(event) => setGender(event.target.value)}>
-                        <option value="male">Male</option>
-                        <option value="female">
-                            Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="contactNo">Contact No:</label>
-                    <input type="text" id="contactNo" value={contactNo} onChange={(event) => setContactNo(event.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="address">Address:</label>
-                    <textarea id="address" value={address} onChange={(event) => setAddress(event.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="bloodGroup">Blood Group:</label>
-                    <input type="text" id="bloodGroup" value={bloodGroup} onChange={(event) => setBloodGroup(event.target.value)} />
-                </div>
-                <button type="submit">Save</button>
-                <button type="button" onClick={handleCancel}>Cancel</button>
-            </form>
-        )}
-    </div>
-);
+            )}
+            {isEditing && (
+                <form onSubmit={handleSubmit}>
+                    <h2>Edit Profile</h2>
+
+                    <div>
+                        <label htmlFor="dateOfBirth">Date of Birth:</label>
+                        <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={handleDateChange} />
+                        {!isValidDate && <p style={{ color: "red" }}>Please select a valid date in the past</p>}
+                    </div>
+                    <div>
+                        <label htmlFor="gender">Gender:</label>
+                        <select id="gender" value={gender} onChange={(event) => setGender(event.target.value)}>
+                            <option value='' disabled selected>Select your Gender</option>
+                            <option value='Male'>Male</option>
+                            <option value="Female">
+                                Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="contact_no">Contact No:</label>
+                        <input type="number" id="contact_no" value={contact_no} onChange={(event) => setContactNo(event.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="address">Address:</label>
+                        <textarea id="address" value={address} onChange={(event) => setAddress(event.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="blood_group">Blood Group:</label>
+                        <select id="blood_group" value={blood_group} onChange={(event) => setBloodGroup(event.target.value)}>
+                            <option value="" disabled selected>Select a blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <button type="submit">Save</button>
+                    <button type="button" onClick={handleCancel}>Cancel</button>
+                </form>
+            )
+            }
+        </div >
+    );
 };
 
 export default RecipientProfile;
-
-
-
-// const RecipientProfile = ({id}) => {
-//     // const { id } = useParams();
-//     const [userData, setUserData] = useState(null);
-
-//     useEffect(() => {
-//         // Make HTTP request to retrieve user profile data
-//         axios.get(`/api/reciProfile/users/64417da247a9ddb8de0cd44f`)
-//             .then(response => {
-//                 // Set user data in state
-//                 setUserData(response.data);
-//             })
-//             .catch(error => {
-//                 console.error(error);
-//             });
-//     }, [id]);
-
-//     if (!userData) {
-//         return <div>Loading...</div>;
-//     }
-//     return (
-//         <div>
-//             <h1>{userData.userName}</h1>
-//             <p>{userData.email}</p>
-//         </div>
-//     );
-// }
-
-// export default RecipientProfile

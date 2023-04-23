@@ -44,17 +44,17 @@ const Login = ({ handleLogin }) => {
         <form className="login-form" onSubmit={handle} >
           <h2>LOGIN</h2><br></br>
           <label htmlFor="email">E-mail address</label>
-          <input type="email" id="email" name="email" value={formdata.email} onChange={handleonChange} placeholder='Enter E-mail'></input>
+          <input type="email" id="email" name="email" value={formdata.email} onChange={handleonChange} placeholder='Enter E-mail' required></input>
           <label htmlFor='userType'>User Type</label>
-          <select id='userType' name='userType' value={formdata.userType} onChange={handleonChange}>
-            <option value='' disabled defaultValue>Select a user type</option>
+          <select id='userType' name='userType' value={formdata.userType} onChange={handleonChange} required>
+            <option value='' disabled selected >Select a user type</option>
             <option value='Recipient'>Recipient</option>
             <option value='Healthcare Professional'>Healthcare Professional</option>
             <option value='Healthcare Facility'>Healthcare Facility</option>
             <option value='Blood Donation Camp'>Blood Donation Camp</option>
           </select>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" value={formdata.password} onChange={handleonChange} placeholder='Enter Password' ></input>
+          <input type="password" id="password" name="password" value={formdata.password} onChange={handleonChange} placeholder='Enter Password' required></input>
           <div className="button-container">
             <button type='submit' >LOG IN</button><br></br>
             <Link to='/Signup'>Don't have an account? Register here.</Link>
