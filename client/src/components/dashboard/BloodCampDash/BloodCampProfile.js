@@ -6,14 +6,20 @@ const BloodCampProfile = () => {
   const [org, setOrg] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [contact_no, setContactNo] = useState("");
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState({
+    line_1: "",
+    line_2: "",
+    city: "",
+    state: "",
+    pincode: "",
+    country: ""
+  });
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`/api/campProfile/camps/${id}`);
+      const response = await axios.get(`/api/orgProfile/orgs/${id}`);
       const data = response.data;
       setOrg(data);
-      console.log(data);
       setContactNo(data.contact_no);
       setAddress(data.address);
     } catch (error) {
@@ -24,9 +30,16 @@ const BloodCampProfile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.put(`/api/campProfile/camps/${org._id}`, {
+      await axios.put(`/api/orgProfile/orgs/${org._id}`, {
         contact_no,
-        address,
+        address: {
+          line_1: address.line_1,
+          line_2: address.line_2,
+          city: address.city,
+          state: address.state,
+          pincode: address.pincode,
+          country: address.country,
+        },
       });
       setIsEditing(false);
       await fetchUser();
@@ -42,7 +55,7 @@ const BloodCampProfile = () => {
   const handleCancel = () => {
     setIsEditing(false);
     setContactNo(org.contact_no);
-    setAddress(org.address);
+    setAddress({...org.address});
   };
 
   useEffect(() => {
@@ -50,47 +63,103 @@ const BloodCampProfile = () => {
   }, []);
 
   return (
-    <div>
-      <form class="orgprofile">
-        {!isEditing && (
+    <div className="maincontainer">
+      {!isEditing && (
+        <div className="profile">
+          <table>
+            <thead>
+              <tr>
+                <th colSpan={2}><h2>User Profile</h2></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Name:</th>
+                <td>{org.orgName}</td>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <td>{org.email}</td>
+              </tr>
+              <tr>
+                <th>Contact No:</th>
+                <td>{org.contact_no}</td>
+              </tr>
+              <tr>
+                <th>Address:</th>
+                <td>{address.line_1}, {address.line_2}, {address.city}, {address.state}, {address.pincode}, {address.country}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="buttons" onClick={handleEdit}>Update Profile</button>
+        </div>
+      )}
+      {isEditing && (
+        <form className="editprofile" onSubmit={handleSubmit}>
+          <h1>Edit Profile</h1>
           <div>
-            <h2>User Profile</h2>
-            <div className="orgname">Name: {org.orgName}</div>
-            <div className="orgemail">Email: {org.email}</div>
-            <div className="orgcontact">Contact No: {org.contact_no}</div>
-            <div className="orgaddress">Address: {org.address}</div>
-            <button onClick={handleEdit}>Update Profile</button>
+            <label htmlFor="contact_no">Contact No:</label>
+            <input
+              type="tel"
+              id="contact_no"
+              pattern="[0-9]{10}"
+              value={contact_no}
+              onChange={(event) => setContactNo(event.target.value)}
+            />
           </div>
-        )}
-        {isEditing && (
-          <form onSubmit={handleSubmit}>
-            <h2>Edit Profile</h2>
-            <div>
-              <label htmlFor="contact_no">Contact No:</label>
-              <input
-                type="number"
-                id="contact_no"
-                value={contact_no}
-                onChange={(event) => setContactNo(event.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="address">Address:</label>
-              <textarea
-                id="address"
-                value={address}
-                onChange={(event) => setAddress(event.target.value)}
-              />
-            </div>
-            <div className="buttons">
-              <button type="submit">Save</button>
-              <button type="button" onClick={handleCancel}>
-                Cancel
-              </button>
-            </div>
-          </form>
-        )}
-      </form>
+          <div>
+            <label htmlFor="address">Address:</label>
+            <input
+              type="text"
+              id="address_line_1"
+              placeholder="Line-1"
+              value={address.line_1}
+              onChange={(event) => setAddress({ ...address, line_1: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_line_2"
+              placeholder="Line-2"
+              value={address.line_2}
+              onChange={(event) => setAddress({ ...address, line_2: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_city"
+              placeholder="City"
+              value={address.city}
+              onChange={(event) => setAddress({ ...address, city: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_state"
+              placeholder="State"
+              value={address.state}
+              onChange={(event) => setAddress({ ...address, state: event.target.value })}
+            />
+            <input
+              type="number"
+              id="address_pincode"
+              placeholder="Pincode"
+              value={address.pincode}
+              onChange={(event) => setAddress({ ...address, pincode: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_country"
+              placeholder="Country"
+              value={address.country}
+              onChange={(event) => setAddress({ ...address, country: event.target.value })}
+            />
+          </div>
+          <div className="buttons">
+            <button type="submit">Save</button>
+            <button type="button" onClick={handleCancel}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

@@ -41,23 +41,23 @@ const Dashboard = () => {
   useEffect(() => {
     getUserData();
   }, [])
-  
+
 
   return (
     <>
       <div className='hpmain'>
         <div className='hplayout'>
           <div className='hpsidebar'>
-            {userType === "Recipient" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick}/>}
-            {userType === "Healthcare Professional" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick}/>}
+            {userType === "Recipient" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick} />}
+            {userType === "Healthcare Professional" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick} />}
             {/* {userType === "Healthcare Facility" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick}/>} */}
-        {userType === "Blood Donation Camp" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick}/>}
+            {userType === "Blood Donation Camp" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick} />}
           </div>
           <div className='hpmainbody'>
             <div className="hpheader">
               <div className="hpheader-content">
-                {userType==="Recipient" && <Link onClick={() => setSelectedMenu('Profile Details')}>Hi, {userName}</Link>}
-                {userType==="Healthcare Professional" && <Link onClick={() => setSelectedMenu('Profile Details')}>Welcome, Dr.{userName}</Link>}
+                {userType === "Recipient" && <Link onClick={() => setSelectedMenu('Profile Details')}>Hi, {userName}</Link>}
+                {userType === "Healthcare Professional" && <Link onClick={() => setSelectedMenu('Profile Details')}>Welcome, Dr.{userName}</Link>}
                 {userType === "Blood Donation Camp" && <Link onClick={() => setSelectedMenu('Profile Details')}>Welcome, {userName}</Link>}
                 <CgProfile size="2rem" color='white' />
               </div>

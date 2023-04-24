@@ -3,6 +3,7 @@
     --secondaryColor: #527fff;
     --textColor: #eee;
 }
+
 .appointments-section{
     display: flex;
     flex-direction: column;

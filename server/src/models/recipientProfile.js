@@ -24,7 +24,15 @@ const recipientProfileSchema = new mongoose.Schema({
     required: true
   },
   address: {
-    type: String,
+    type: Object,
+    default: {
+      line_1: '',
+      line_2: '',
+      city: '',
+      state: '',
+      country: '',
+      pincode: ''
+    }
   },
   blood_group: {
     type: String,

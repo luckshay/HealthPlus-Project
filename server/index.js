@@ -35,5 +35,5 @@ app.use('/api/userquery', userqueryRoutes)
 const reciProfileRoutes =require('./src/routes/reciProfileRoutes')
 app.use('/api/reciProfile', reciProfileRoutes)
 
-const campProfileRoutes =require('./src/routes/campProfileRoutes')
-app.use('/api/campProfile', campProfileRoutes)
+const orgProfileRoutes =require('./src/routes/orgProfileRoutes')
+app.use('/api/orgProfile', orgProfileRoutes)

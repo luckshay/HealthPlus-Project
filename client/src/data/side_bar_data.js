@@ -52,10 +52,10 @@ export const campMenu = [
     name: "Home",
     icon: MdHome,
   },
-  // {
-  //   name: "Blood Donation Camps",
-  //   icon: MdOutlineBloodtype,
-  // },
+  {
+    name: "Blood Donation Camps",
+    icon: MdOutlineBloodtype,
+  },
   {
     name: "Appointments",
     icon: MdChecklist,

@@ -11,6 +11,7 @@
 
 .hplayout {
     display: flex;
+    margin: 10px;
 }
 
 .hpsidebar {
@@ -98,9 +99,3 @@ hr {
     height: 100%;
 }
 
-/* 
-.hpbody {
-    height: 98vh;
-    box-shadow: 0 0 2px gray;
-    background-color: white;
-} */

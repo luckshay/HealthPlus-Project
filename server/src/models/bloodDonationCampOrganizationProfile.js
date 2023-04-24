@@ -10,28 +10,14 @@ const campSchema = new Schema({
 
   // },
   address: {
-    line_1: {
-      type: String,
-      // required: true
-    },
-    line_2: {
-      type: String
-    },
-    city: {
-      type: String,
-      // required: true
-    },
-    state: {
-      type: String,
-      // required: true
-    },
-    pincode: {
-      type: String,
-      // required: true
-    },
-    country: {
-      type: String,
-      // required: true
+    type: Object,
+    default: {
+      line_1: '',
+      line_2: '',
+      city: '',
+      state: '',
+      country: '',
+      pincode: ''
     }
   },
   date: {
@@ -82,7 +68,7 @@ const campSchema = new Schema({
   }
 });
 
-const organizationSchema = new Schema({
+const bloodDonationCampOrganizationSchema = new Schema({
   donation_org_id: {
     type: String,
     required: true,
@@ -97,37 +83,22 @@ const organizationSchema = new Schema({
     required: true
   },
   address: {
-    line_1: {
-      type: String,
-      // required: true
-    },
-    line_2: {
-      type: String
-    },
-    city: {
-      type: String,
-      // required: true
-    },
-    state: {
-      type: String,
-      // required: true
-    },
-    pincode: {
-      type: String,
-      // required: true
-    },
-    country: {
-      type: String,
-      // required: true
+    type: Object,
+    default: {
+      line_1: '',
+      line_2: '',
+      city: '',
+      state: '',
+      country: '',
+      pincode: ''
     }
   },
   contact_no: {
-    type: String,
-    // required: true
+    type: Number,
   },
   camps: [campSchema]
 });
 
-const Organization = mongoose.model('Organization', organizationSchema);
+const BloodDonationCampOrganization = mongoose.model('BloodDonationCampOrganization', bloodDonationCampOrganizationSchema);
 
-module.exports = Organization;
+module.exports = BloodDonationCampOrganization;

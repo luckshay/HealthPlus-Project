@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const RecipientProfile = require('./recipientProfile')
-const bloodDonationProfile = require('./bloodDonationProfile')
+const bloodDonationCampOrganizationProfile =require('./bloodDonationCampOrganizationProfile')
 
 const userSchema = new mongoose.Schema(
   {
@@ -48,7 +48,7 @@ userSchema.pre('save', async function(next) {
 // Pre-save hook to create a Blood Donation Camp profile for a new user
 userSchema.pre('save', async function(next) {
   if (this.isNew && this.userType==="Blood Donation Camp") {
-    const CampProfile = new bloodDonationProfile({
+    const CampProfile = new bloodDonationCampOrganizationProfile({
       donation_org_id: this._id,
       orgName: this.userName,
       email: this.email,

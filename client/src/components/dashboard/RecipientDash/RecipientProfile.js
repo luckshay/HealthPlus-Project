@@ -13,7 +13,14 @@ const RecipientProfile = () => {
   const [ageMonths, setAgeMonths] = useState("");
   const [gender, setGender] = useState("");
   const [contact_no, setContactNo] = useState("");
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState({
+    line_1: "",
+    line_2: "",
+    city: "",
+    state: "",
+    pincode: "",
+    country: ""
+  });
   const [blood_group, setBloodGroup] = useState("");
 
   const fetchUser = async () => {
@@ -21,7 +28,7 @@ const RecipientProfile = () => {
       const response = await axios.get(`/api/reciProfile/users/${id}`);
       const data = response.data;
       setUser(data);
-      const formattedDOB = moment(data.dateOfBirth).format("YYYY-MM-DD");
+      const formattedDOB = moment(data.dateOfBirth).format("DD-MM-YYYY");
       setDateOfBirth(formattedDOB);
       setGender(data.gender);
       setContactNo(data.contact_no);
@@ -47,7 +54,14 @@ const RecipientProfile = () => {
         dateOfBirth,
         gender,
         contact_no,
-        address,
+        address: {
+          line_1: address.line_1,
+          line_2: address.line_2,
+          city: address.city,
+          state: address.state,
+          pincode: address.pincode,
+          country: address.country,
+        },
         blood_group,
       });
       setIsEditing(false);
@@ -66,7 +80,7 @@ const RecipientProfile = () => {
     setDateOfBirth(user.dateOfBirth);
     setGender(user.gender);
     setContactNo(user.contact_no);
-    setAddress(user.address);
+    setAddress({...user.address});
     setBloodGroup(user.blood_group);
   };
 
@@ -86,51 +100,57 @@ const RecipientProfile = () => {
   return (
     <div className="maincontainer">
       {!isEditing && (
-        <div className="userprofile">
-          <div className="top-section">
-            <h2>User Profile</h2>
-            <div className="profile-picture">
-              <img src={user.profilePicture} alt="Profile Picture" />
-            </div>
-          </div>
-          <div className="username">
-            Name: <div className="getInput"> {user.userName}</div>
-          </div>
-          <div className="useremail">
-            Email: <div className="getInput"> {user.email}</div>
-          </div>
-          <div className="userdob">
-            Date of Birth: <div className="getInput"> {user.dateOfBirth}</div>
-          </div>
-          <div className="userage">
-            Age:{" "}
-            <div className="getInput">
-              {" "}
-              {ageYears} years {ageMonths} months
-            </div>
-          </div>
-          <div className="usergender">
-            Gender: <div className="getInput"> {user.gender}</div>
-          </div>
-          <div className="usercontactno">
-            Contact No: <div className="getInput"> {user.contact_no}</div>
-          </div>
-          <div className="address">
-            Address: <div className="getInput"> {user.address}</div>
-          </div>
-          <div className="userbloodgroup">
-            Blood Group: <div className="getInput"> {user.blood_group}</div>
-          </div>
-          <button className="userupdateprofile" onClick={handleEdit}>
+        <div className="profile">
+          <table>
+            <thead>
+              <tr>
+                <th colSpan="2"><h2>User Profile</h2></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Name:</th>
+                <td>{user.userName}</td>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <td>{user.email}</td>
+              </tr>
+              <tr>
+                <th>Date of Birth:</th>
+                <td>{dateOfBirth}</td>
+              </tr>
+              <tr>
+                <th>Age:</th>
+                <td>{ageYears} years {ageMonths} months</td>
+              </tr>
+              <tr>
+                <th>Gender:</th>
+                <td>{user.gender}</td>
+              </tr>
+              <tr>
+                <th>Contact No:</th>
+                <td>{user.contact_no}</td>
+              </tr>
+              <tr>
+                <th>Address:</th>
+                <td>{address.line_1}, {address.line_2}, {address.city}, {address.state}, {address.pincode}, {address.country}</td>
+              </tr>
+              <tr>
+                <th>Blood Group:</th>
+                <td>{user.blood_group}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="buttons" onClick={handleEdit}>
             Update Profile
           </button>
         </div>
       )}
       {isEditing && (
         <form className="editprofile" onSubmit={handleSubmit}>
-          <h2>Edit Profile</h2>
-
           <div>
+          <h1>Edit Profile</h1>
             <label htmlFor="dateOfBirth">Date of Birth:</label>
             <input
               type="date"
@@ -162,18 +182,56 @@ const RecipientProfile = () => {
           <div>
             <label htmlFor="contact_no">Contact No:</label>
             <input
-              type="number"
+              type="tel"
               id="contact_no"
+              pattern="[0-9]{10}"
               value={contact_no}
               onChange={(event) => setContactNo(event.target.value)}
             />
           </div>
           <div>
             <label htmlFor="address">Address:</label>
-            <textarea
-              id="address"
-              value={address}
-              onChange={(event) => setAddress(event.target.value)}
+            <input
+              type="text"
+              id="address_line_1"
+              placeholder="Line-1"
+              value={address.line_1}
+              onChange={(event) => setAddress({ ...address, line_1: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_line_2"
+              placeholder="Line-2"
+              value={address.line_2}
+              onChange={(event) => setAddress({ ...address, line_2: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_city"
+              placeholder="City"
+              value={address.city}
+              onChange={(event) => setAddress({ ...address, city: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_state"
+              placeholder="State"
+              value={address.state}
+              onChange={(event) => setAddress({ ...address, state: event.target.value })}
+            />
+            <input
+              type="number"
+              id="address_pincode"
+              placeholder="Pincode"
+              value={address.pincode}
+              onChange={(event) => setAddress({ ...address, pincode: event.target.value })}
+            />
+            <input
+              type="text"
+              id="address_country"
+              placeholder="Country"
+              value={address.country}
+              onChange={(event) => setAddress({ ...address, country: event.target.value })}
             />
           </div>
           <div>
