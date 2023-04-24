@@ -77,7 +77,7 @@ const RecipientProfile = () => {
 
   const handleCancel = () => {
     setIsEditing(false);
-    setDateOfBirth(user.dateOfBirth);
+    setDateOfBirth(dateOfBirth);
     setGender(user.gender);
     setContactNo(user.contact_no);
     setAddress({...user.address});

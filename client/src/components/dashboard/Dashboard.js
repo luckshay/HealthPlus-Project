@@ -14,8 +14,9 @@ import ProfessionalHome from './ProfessionalDash/ProfessionalHome'
 import ProfessionalAppointment from './ProfessionalDash/ProfessionalAppointment'
 import ProfessionalProfile from './ProfessionalDash/ProfessionalProfile';
 
-import BloodCampHome from './BloodCampDash/BloodCampHome';
-import BloodCampProfile from './BloodCampDash/BloodCampProfile';
+import BloodDonationOrganisationHome from './BloodDonationOrganisationDash/BloodDonationOrganisationHome';
+import BloodDonationOrganisationCamps from './BloodDonationOrganisationDash/BloodDonationOrganisationCamps';
+import BloodDonationOrganisationProfile from './BloodDonationOrganisationDash/BloodDonationOrganisationProfile';
 
 const Dashboard = () => {
   const [selectedMenu, setSelectedMenu] = useState("Home");
@@ -72,8 +73,9 @@ const Dashboard = () => {
               {userType === "Healthcare Professional" && selectedMenu === "Appointments" && <ProfessionalAppointment />}
               {userType === "Healthcare Professional" && selectedMenu === "Profile Details" && <ProfessionalProfile />}
 
-              {userType === "Blood Donation Camp" && selectedMenu === "Home" && <BloodCampHome />}
-              {userType === "Blood Donation Camp" && selectedMenu === "Profile Details" && <BloodCampProfile />}
+              {userType === "Blood Donation Camp" && selectedMenu === "Home" && <BloodDonationOrganisationHome />}
+              {userType === "Blood Donation Camp" && selectedMenu === "Blood Donation Camps" && <BloodDonationOrganisationCamps />}
+              {userType === "Blood Donation Camp" && selectedMenu === "Profile Details" && <BloodDonationOrganisationProfile />}
             </div>
           </div>
         </div>

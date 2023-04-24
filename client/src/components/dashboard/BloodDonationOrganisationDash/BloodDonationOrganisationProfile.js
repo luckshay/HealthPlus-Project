@@ -15,7 +15,7 @@ const BloodCampProfile = () => {
     country: ""
   });
 
-  const fetchUser = async () => {
+  const fetchOrg = async () => {
     try {
       const response = await axios.get(`/api/orgProfile/orgs/${id}`);
       const data = response.data;
@@ -42,7 +42,7 @@ const BloodCampProfile = () => {
         },
       });
       setIsEditing(false);
-      await fetchUser();
+      await fetchOrg();
     } catch (err) {
       console.error(err);
     }
@@ -59,7 +59,7 @@ const BloodCampProfile = () => {
   };
 
   useEffect(() => {
-    fetchUser();
+    fetchOrg();
   }, []);
 
   return (

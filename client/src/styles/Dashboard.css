@@ -6,16 +6,16 @@
 
 .hpmain {
     padding: 10px;
-    height: 800px;
+    height: fit-content;
 }
 
 .hplayout {
     display: flex;
-    margin: 10px;
 }
 
 .hpsidebar {
-    height: 720px;
+    height: inherit;
+    min-height: 97vh;
     width: 300px;
     border-radius: 5px;
     background-color: var(--mainColor);

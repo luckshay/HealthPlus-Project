@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
 
-const campSchema = new Schema({
+const campSchema = new mongoose.Schema({
   camp_name: {
     type: String,
     required: true
   },
-  // is_camp_active:{
-
-  // },
+  isActive: {
+    type: Boolean,
+  },
   address: {
     type: Object,
     default: {
@@ -68,7 +67,7 @@ const campSchema = new Schema({
   }
 });
 
-const bloodDonationCampOrganizationSchema = new Schema({
+const bloodDonationCampOrganizationSchema = new mongoose.Schema({
   donation_org_id: {
     type: String,
     required: true,
