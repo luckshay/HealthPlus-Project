@@ -93,10 +93,9 @@ function Home() {
       id: 4,
       title: "Blood Donation Camps",
       image: image4,
-      //  content: 'Tab  Content',
       content: (
         <div className="tab-content-wrapper">
-          <div className="tab-content-image4">
+          <div className="tab-content-image">
             <img src={image8} alt="Patient" />
           </div>
           <div className="tab-content-text">
