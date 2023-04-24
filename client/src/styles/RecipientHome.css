@@ -14,10 +14,24 @@
 .section-heading{
     padding-left: 10px;
 }
+.card{
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px;
+}
 .card-section{
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
+}
+.card-title,
+.card-subtitle {
+  font-weight: bold;
+  padding: 5px;
+}
+.card-text{
+    padding: 5px;
+    margin-bottom: 5px;
 }
 .btn-primary {
   background-color: var(--mainColor);
