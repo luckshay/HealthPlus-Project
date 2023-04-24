@@ -122,7 +122,7 @@
 .editprofile .buttons {
   display: flex;
   flex-direction:row;
-  margin-left: 600px;
+  margin-left: 630px;
   justify-content: space-between;
 }
 
