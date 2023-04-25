@@ -60,7 +60,7 @@ const BloodCampProfile = () => {
 
   useEffect(() => {
     fetchOrg();
-  }, []);
+  });
 
   return (
     <div className="maincontainer">

@@ -149,8 +149,8 @@ const RecipientProfile = () => {
       )}
       {isEditing && (
         <form className="editprofile" onSubmit={handleSubmit}>
-          <div>
           <h1>Edit Profile</h1>
+          <div>
             <label htmlFor="dateOfBirth">Date of Birth:</label>
             <input
               type="date"
