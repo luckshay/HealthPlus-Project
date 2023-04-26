@@ -63,7 +63,7 @@ userSchema.pre('save', async function(next) {
   } else {
     next();
   }
-});
+[]});
 userSchema.pre('save', async function(next) {
   if (this.isNew && this.userType==="Healthcare Facility") {
     const facilityProfile = new healthCareFacilityProfile({
