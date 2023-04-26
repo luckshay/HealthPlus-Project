@@ -103,7 +103,7 @@ const BloodCampProfile = () => {
               type="tel"
               id="contact_no"
               pattern="[0-9]{10}"
-              value={contact_no}
+              placeholder="XXXXX-XXXXX"
               onChange={(event) => setContactNo(event.target.value)}
             />
           </div>
@@ -112,43 +112,37 @@ const BloodCampProfile = () => {
             <input
               type="text"
               id="address_line_1"
-              placeholder="Line-1"
-              value={address.line_1}
+              placeholder="Address Line 1"
               onChange={(event) => setAddress({ ...address, line_1: event.target.value })}
             />
             <input
               type="text"
               id="address_line_2"
-              placeholder="Line-2"
-              value={address.line_2}
+              placeholder="Address Line 2"
               onChange={(event) => setAddress({ ...address, line_2: event.target.value })}
             />
             <input
               type="text"
               id="address_city"
               placeholder="City"
-              value={address.city}
               onChange={(event) => setAddress({ ...address, city: event.target.value })}
             />
             <input
               type="text"
               id="address_state"
               placeholder="State"
-              value={address.state}
               onChange={(event) => setAddress({ ...address, state: event.target.value })}
             />
             <input
               type="number"
               id="address_pincode"
               placeholder="Pincode"
-              value={address.pincode}
               onChange={(event) => setAddress({ ...address, pincode: event.target.value })}
             />
             <input
               type="text"
               id="address_country"
               placeholder="Country"
-              value={address.country}
               onChange={(event) => setAddress({ ...address, country: event.target.value })}
             />
           </div>

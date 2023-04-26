@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const campSchema = new mongoose.Schema({
+  
   camp_name: {
     type: String,
-    required: true
+    // required: true
   },
   isActive: {
     type: Boolean,
@@ -21,7 +22,7 @@ const campSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: true
+    // required: true
   },
   start_time: {
     type: String,
