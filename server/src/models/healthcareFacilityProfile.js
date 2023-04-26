@@ -12,12 +12,36 @@ const healthCareproSchema = new Schema({
 });
 
 const healthCareFacilitySchema = new Schema({
-  registration_no: String,
-  hospital_id: Schema.Types.ObjectId,
-  hospital_name: String,
-  address: String,
-  contact_no: String,
-  email: String,
+  registration_no: {
+    type:String
+  },
+  healthcare_facility_id: {
+    type: String,
+    required:true,
+    unique:true
+  },
+  healthcare_facility_name: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: Object,
+    default: {
+      line_1: '',
+      line_2: '',
+      city: '',
+      state: '',
+      country: '',
+      pincode: ''
+    }
+  },
+  contact_no: {
+    type:Number
+  },
+  email:  {
+    type: String,
+    required: true
+  },
   doctors: [healthCareproSchema],
 });
 

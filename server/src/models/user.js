@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const RecipientProfile = require('./recipientProfile')
 const bloodDonationCampOrganizationProfile =require('./bloodDonationCampOrganizationProfile')
+const healthCareFacilityProfile= require('./healthcareFacilityProfile')
 
 const userSchema = new mongoose.Schema(
   {
@@ -63,15 +64,15 @@ userSchema.pre('save', async function(next) {
     next();
   }
 });
-healthCareFacilitySchema.pre('save', async function(next) {
-  if (this.isNew && this.userType==="HealthCare Facility") {
-    const CampProfile = new bloodDonationCampOrganizationProfile({
-      donation_org_id: this._id,
-      orgName: this.userName,
+userSchema.pre('save', async function(next) {
+  if (this.isNew && this.userType==="Healthcare Facility") {
+    const facilityProfile = new healthCareFacilityProfile({
+      healthcare_facility_id: this._id,
+      healthcare_facility_name: this.userName,
       email: this.email,
     });
     try {
-      await CampProfile.save();
+      await facilityProfile.save();
       next();
     } catch (error) {
       next(error);

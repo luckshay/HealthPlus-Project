@@ -14,9 +14,9 @@ import ProfessionalHome from './ProfessionalDash/ProfessionalHome'
 import ProfessionalAppointment from './ProfessionalDash/ProfessionalAppointment'
 import ProfessionalProfile from './ProfessionalDash/ProfessionalProfile';
 
-import HeathCareHome from './HealthCareFacility.js/HeathCareHome';
-import HealthCareDoctors from './HealthCareFacility.js/HealthCareDoctors';
-import Heathcareprofile from './HealthCareFacility.js/Heathcareprofile';
+import HeathCareHome from './HealthCareFacilityDash/HeathCareHome';
+import HealthCareDoctors from './HealthCareFacilityDash/HealthCarePro';
+import Heathcareprofile from './HealthCareFacilityDash/Heathcareprofile';
 
 import BloodDonationOrganisationHome from './BloodDonationOrganisationDash/BloodDonationOrganisationHome';
 import BloodDonationOrganisationCamps from './BloodDonationOrganisationDash/BloodDonationOrganisationCamps';
