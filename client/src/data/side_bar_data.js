@@ -1,5 +1,6 @@
 import { MdHome, MdChecklist, MdOutlineBloodtype, MdOutlineLogout} from "react-icons/md";
 import {ImProfile} from "react-icons/im"
+import {RiStethoscopeLine} from "react-icons/ri"
 
 // Recipient Menu
 export const recipientMenu = [
@@ -45,6 +46,26 @@ export const proMenu = [
     icon: MdOutlineLogout,
   },
 ];
+
+export const facilityMenu=[
+  {
+    name:"Home",
+    icon: MdHome,
+  },
+  {
+name:"Doctors",
+icon:RiStethoscopeLine,
+  },
+  {
+  name:"Facility Profile",
+  icon:ImProfile,
+  },
+  {
+  name:"Logout",
+  path: "/login",
+  icon: MdOutlineLogout,
+},
+]
 
 //Blood Donation Camps Menu
 export const campMenu = [

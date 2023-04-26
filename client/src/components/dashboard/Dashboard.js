@@ -14,6 +14,10 @@ import ProfessionalHome from './ProfessionalDash/ProfessionalHome'
 import ProfessionalAppointment from './ProfessionalDash/ProfessionalAppointment'
 import ProfessionalProfile from './ProfessionalDash/ProfessionalProfile';
 
+import HeathCareHome from './HealthCareFacility.js/HeathCareHome';
+import HealthCareDoctors from './HealthCareFacility.js/HealthCareDoctors';
+import Heathcareprofile from './HealthCareFacility.js/Heathcareprofile';
+
 import BloodDonationOrganisationHome from './BloodDonationOrganisationDash/BloodDonationOrganisationHome';
 import BloodDonationOrganisationCamps from './BloodDonationOrganisationDash/BloodDonationOrganisationCamps';
 import BloodDonationOrganisationProfile from './BloodDonationOrganisationDash/BloodDonationOrganisationProfile';
@@ -51,7 +55,7 @@ const Dashboard = () => {
           <div className='hpsidebar'>
             {userType === "Recipient" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick} />}
             {userType === "Healthcare Professional" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick} />}
-            {/* {userType === "Healthcare Facility" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick}/>} */}
+            {userType === "Healthcare Facility" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick}/>}
             {userType === "Blood Donation Camp" && <Sidebar userType={userType} setSelectedMenu={handleMenuClick} />}
           </div>
           <div className='hpmainbody'>
@@ -59,6 +63,7 @@ const Dashboard = () => {
               <div className="hpheader-content">
                 {userType === "Recipient" && <Link onClick={() => setSelectedMenu('Profile Details')}>Hi, {userName}</Link>}
                 {userType === "Healthcare Professional" && <Link onClick={() => setSelectedMenu('Profile Details')}>Welcome, Dr.{userName}</Link>}
+                {userType === "Healthcare Facility" && <Link onClick={() => setSelectedMenu('Profile Details')}>Welcome, {userName}</Link>}
                 {userType === "Blood Donation Camp" && <Link onClick={() => setSelectedMenu('Profile Details')}>Welcome, {userName}</Link>}
                 <CgProfile size="2rem" color='white' />
               </div>
@@ -72,6 +77,10 @@ const Dashboard = () => {
               {userType === "Healthcare Professional" && selectedMenu === "Home" && <ProfessionalHome />}
               {userType === "Healthcare Professional" && selectedMenu === "Appointments" && <ProfessionalAppointment />}
               {userType === "Healthcare Professional" && selectedMenu === "Profile Details" && <ProfessionalProfile />}
+
+{userType==="Healthcare Facility" && selectedMenu=== "Home" && <HeathCareHome/>}
+{userType==="Healthcare Facility" && selectedMenu=== "Doctors" && <HealthCareDoctors/>}
+{userType==="Healthcare Facility" && selectedMenu=== "Facility Profile" && <Heathcareprofile/>}
 
               {userType === "Blood Donation Camp" && selectedMenu === "Home" && <BloodDonationOrganisationHome />}
               {userType === "Blood Donation Camp" && selectedMenu === "Blood Donation Camps" && <BloodDonationOrganisationCamps />}
