@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../config/axios";
 import "../../../styles/Dashboardprofiles.css";
+import "../../../styles/form.css";
+
 const BloodCampProfile = () => {
   const id = sessionStorage.getItem("id");
   const [org, setOrg] = useState("");

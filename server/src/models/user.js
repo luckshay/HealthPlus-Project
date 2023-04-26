@@ -63,6 +63,22 @@ userSchema.pre('save', async function(next) {
     next();
   }
 });
-
+healthCareFacilitySchema.pre('save', async function(next) {
+  if (this.isNew && this.userType==="HealthCare Facility") {
+    const CampProfile = new bloodDonationCampOrganizationProfile({
+      donation_org_id: this._id,
+      orgName: this.userName,
+      email: this.email,
+    });
+    try {
+      await CampProfile.save();
+      next();
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    next();
+  }
+});
 
 module.exports = mongoose.model('User', userSchema);

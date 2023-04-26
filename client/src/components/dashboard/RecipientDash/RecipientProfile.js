@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "../../../config/axios";
 import "../../../styles/Dashboardprofiles.css";
+import "../../../styles/form.css";
 
 const RecipientProfile = () => {
   const id = sessionStorage.getItem("id");
