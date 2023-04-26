@@ -1,8 +1,8 @@
 const express = require('express');
-const {userquery} = require('../controllers/userqueryController');
+const userqueryController = require('../controllers/userqueryController');
 
 const router = express.Router();
 
-router.post('/', userquery);
+router.post('/', userqueryController.userquery);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../../config/axios';
-
+import "../../../styles/Campsprofile.css";
 
 const BloodDonationOrganisationCamps = () => {
     const id = sessionStorage.getItem("id");
@@ -81,11 +81,11 @@ const BloodDonationOrganisationCamps = () => {
         <>
             <div>
                 {!isAdding && (
-                    <div>
+                    <div className='main-table'>
                         <h2>Camps List</h2>
                         {camps.length > 0 && (
                             <div>
-                                <table>
+                                <table className='main-table'>
                                     <thead>
                                         <tr>
                                             <th>Camp Name</th>
@@ -95,6 +95,7 @@ const BloodDonationOrganisationCamps = () => {
                                             <th>Address</th>
                                             <th>Units Collected</th>
                                             <th>Active</th>
+                                            <th>Camp Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -116,7 +117,17 @@ const BloodDonationOrganisationCamps = () => {
                                                     O+: {camp.units_collected.O_positive}<br />
                                                     O-: {camp.units_collected.O_negative}
                                                 </td>
-                                                <td>{camp.isActive}</td>
+                                                <td>
+                                                    {camp.isActive ? "Yes" : "No"}
+                                                </td>
+                                                <td>
+                                                    <button className='buttons' onClick="update">
+                                                        Update
+                                                    </button>
+                                                    <button className='buttons' onClick="">
+                                                        Cancel
+                                                    </button>
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -142,7 +153,7 @@ const BloodDonationOrganisationCamps = () => {
                                 id="campName"
                                 placeholder='Name of Camp'
                                 required
-                                value={newCamp.campName}
+                                value={camps.campName}
                                 onChange={(event) => setNewCamp({ ...newCamp, campName: event.target.value })}
                             />
                         </div>
@@ -269,7 +280,7 @@ const BloodDonationOrganisationCamps = () => {
                         <div>
                             <label for="endtime">End Time:</label>
                             <select name="hours"
-                            value={endTimeHours} onChange={(event) => setEndTimeHours(event.target.value)}>
+                                value={endTimeHours} onChange={(event) => setEndTimeHours(event.target.value)}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -284,14 +295,14 @@ const BloodDonationOrganisationCamps = () => {
                                 <option value="12">12</option>
                             </select>
                             <select name="minutes"
-                            value={endTimeMinutes} onChange={(event) => setEndTimeMinutes(event.target.value)}>
+                                value={endTimeMinutes} onChange={(event) => setEndTimeMinutes(event.target.value)}>
                                 <option value="00">00</option>
                                 <option value="15">15</option>
                                 <option value="30">30</option>
                                 <option value="45">45</option>
                             </select>
                             <select name="ampm"
-                             value={endTimeAmPm} onChange={(event) => setEndTimeAmPm(event.target.value)}>
+                                value={endTimeAmPm} onChange={(event) => setEndTimeAmPm(event.target.value)}>
                                 <option value="AM">AM</option>
                                 <option value="PM">PM</option>
                             </select>
