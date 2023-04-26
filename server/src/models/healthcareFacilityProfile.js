@@ -5,7 +5,7 @@ const healthCareproSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: String,
   speciality: String,
-  contact_no: String,
+  contact_no: Number,
   email: String,
   joining_date: Date,
   leaving_date: Date,
@@ -42,7 +42,7 @@ const healthCareFacilitySchema = new Schema({
     type: String,
     required: true
   },
-  doctors: [healthCareproSchema],
+  professionals: [healthCareproSchema],
 });
 
 const healthCareFacility= mongoose.model('healthCareFacility', healthCareFacilitySchema);
