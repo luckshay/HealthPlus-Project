@@ -13,7 +13,7 @@ exports.register = async (req, res) => {
     }
 
     if (!validator.isStrongPassword(password)) {
-      return res.status(400).json({ message: "Password Rejected", success: false });
+      return res.status(400).json({ message: "Password Rejected-Password must contain lowercase letter(a-z),uppercase letter(A-Z),special symbol(@,$),number and length must be greater than 8", success: false });
     }
 
     if (password !== confirmPassword) {

@@ -71,7 +71,65 @@
     color: #fff;
     text-decoration: none;
   }
+.password-input-container {
+  position: relative;
+}
 
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle-icon svg {
+  width: 21px;
+  height: 21px;
+  color: #4a4a4a;
+  margin-right: 10px;
+}
+
+.password-toggle-icon:hover svg {
+  color: #b4b1b1;
+}
+/* new password eye icon */
+.password-toggle-icon1 {
+  position: absolute;
+  top: 81.5%;
+  right: 20.5%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.password-toggle-icon1 svg {
+  width: 21px;
+  height: 21px;
+  color: #4a4a4a;
+}
+
+.password-toggle-icon1:hover svg {
+  color: #b4b1b1;
+}
+
+/* confirm password eye icon */
+.password-toggle-icon2 {
+  position: absolute;
+  top: 95.5%;
+  right: 20.5%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.password-toggle-icon2 svg {
+  width: 21px;
+  height: 21px;
+  color: #4a4a4a;
+}
+
+.password-toggle-icon2:hover svg {
+  color: #b4b1b1;
+}
   /* Style for the image */
   .image-container img {
     max-width: 100%;

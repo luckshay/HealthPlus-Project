@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from "../Navbar";
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import axios from '../../config/axios';
 import '../../styles/Login_Signup.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 const Login = ({ handleLogin }) => {
   const [formdata, setformdata] = useState({
     email: "",
     userType: "",
     password: "",
+  });
 
-  })
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleonChange = (e) => {
     let val = e.target.value;
     let name = e.target.name;
@@ -34,6 +37,10 @@ const Login = ({ handleLogin }) => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <Navbar />
@@ -54,7 +61,12 @@ const Login = ({ handleLogin }) => {
             <option value='Blood Donation Camp'>Blood Donation Camp</option>
           </select>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" value={formdata.password} onChange={handleonChange} placeholder='Enter Password' required></input>
+          <div className="password-input-container">
+            <input type={showPassword ? "text" : "password"} id="password" name="password" value={formdata.password} onChange={handleonChange} placeholder='Enter Password' required></input>
+            <div className="password-toggle-icon" onClick={togglePasswordVisibility}>
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </div>
+          </div>
           <div className="button-container">
             <button type='submit' >LOG IN</button><br></br>
             <Link to='/Signup'>Don't have an account? Register here.</Link>
@@ -65,4 +77,4 @@ const Login = ({ handleLogin }) => {
   )
 }
 
-export default Login
+export default Login;

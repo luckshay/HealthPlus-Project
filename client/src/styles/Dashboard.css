@@ -63,7 +63,9 @@ hr {
     font-size: 18px;
 
 }
-
+.hpmenu-item.selected {
+    background-color: var(--secondaryColor);
+  }
 .hpmenu-item p a {
     color: white;
 }
