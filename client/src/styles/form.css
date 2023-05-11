@@ -1,5 +1,7 @@
 /* edit profile page */
-
+.cenetr{
+  text-align:center;
+}
 .editprofile h1 {
     text-align: center;
     margin-bottom: 20px;

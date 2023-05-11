@@ -18,3 +18,4 @@ exports.updateRecipient = async (req, res) => {
         res.status(500).json({ error: 'Error updating recipient in database.' });
     }
 };
+

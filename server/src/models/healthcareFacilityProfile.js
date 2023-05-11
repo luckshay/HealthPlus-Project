@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const healthCareproSchema = new Schema({
-  _id: Schema.Types.ObjectId,
   name: String,
   speciality: String,
   contact_no: Number,

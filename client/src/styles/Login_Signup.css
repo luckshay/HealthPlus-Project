@@ -96,8 +96,8 @@
 /* new password eye icon */
 .password-toggle-icon1 {
   position: absolute;
-  top: 81.5%;
-  right: 20.5%;
+  top: 74.5%;
+  right: 22.5%;
   cursor: pointer;
   font-size: 18px;
 }
@@ -115,8 +115,8 @@
 /* confirm password eye icon */
 .password-toggle-icon2 {
   position: absolute;
-  top: 95.5%;
-  right: 20.5%;
+  top: 87.5%;
+  right: 22.5%;
   cursor: pointer;
   font-size: 18px;
 }

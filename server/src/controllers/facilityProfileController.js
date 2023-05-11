@@ -55,3 +55,13 @@ exports.addnewPro = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
+
+exports.getlist=async (req, res) => {
+    try {
+        // Fetch facilities from the database and sort by city and state
+        const facilities = await FacilityProfile.find().sort({ 'address.city': 1, 'address.state': 1 });
+        res.json(facilities);
+      } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch facilities' });
+      }
+}

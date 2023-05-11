@@ -55,3 +55,35 @@ exports.addnewCamp = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
+
+exports.getlist=async (_req, res) => {
+    try {
+        const orgs = await OrgProfile.find();
+    
+        const allCamps = orgs.reduce((camps, org) => {
+          if (org && Array.isArray(org.camps)) {
+            const orgCamps = org.camps.map((camp) => ({
+              orgName: org.orgName,
+              campName: camp.camp_name,
+              city: camp.address.city,
+              state: camp.address.state,
+            }));
+    
+            return camps.concat(orgCamps);
+          }
+    
+          return camps;
+        }, []);
+    
+        const sortedCamps = allCamps.sort((a, b) => {
+          if (a.city === b.city) {
+            return a.state.localeCompare(b.state);
+          }
+          return a.city.localeCompare(b.city);
+        });
+        res.json(sortedCamps);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+      }
+    };
