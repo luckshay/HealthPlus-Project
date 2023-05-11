@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../../config/axios';
-
+import "../../../styles/RecipientCamps.css"
 const CampsList = () => {
   const [camps, setCamps] = useState([]);
 
@@ -18,7 +18,7 @@ const CampsList = () => {
   }, []);
 
   return (
-    <div>
+    <div className='camp_details'>
       <h2>List of Camps</h2>
       <ul>
         {camps.map((camp, index) => (
