@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../../config/axios';
-import "../../../styles/RecipientCamps.css"
+import '../../../styles/RecipientCamps.css';
+
 const CampsList = () => {
   const [camps, setCamps] = useState([]);
 
@@ -20,16 +21,26 @@ const CampsList = () => {
   return (
     <div className='camp_details'>
       <h2>List of Camps</h2>
-      <ul>
-        {camps.map((camp, index) => (
-          <li key={index}>
-            <h3>{camp.orgName}</h3>
-            <p>Camp Name: {camp.campName}</p>
-            <p>City: {camp.city}</p>
-            <p>State: {camp.state}</p>
-          </li>
-        ))}
-      </ul>
+      <table className='camp_table'>
+        <thead>
+          <tr>
+            <th>Organization Name</th>
+            <th>Camp Name</th>
+            <th>City</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody>
+          {camps.map((camp, index) => (
+            <tr key={index}>
+              <td>{camp.orgName}</td>
+              <td>{camp.campName}</td>
+              <td>{camp.city}</td>
+              <td>{camp.state}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
