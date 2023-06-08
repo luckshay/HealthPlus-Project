@@ -55,7 +55,7 @@ const BloodDonationOrganisationCamps = () => {
 
     useEffect(() => {
         fetchCamps();
-    }),[];
+    },[]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
